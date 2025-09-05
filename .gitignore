@@ -1,1 +1,13 @@
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Editor junk
 .vscode/
+.idea/
+
+# Logs
+*.log
+
+# Env files (if you add secrets later)
+.env
