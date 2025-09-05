@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UpBytes - Learn Coding & Get Certified</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="assets/graphics/logo.ico"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Dark mode config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              bg: "#f9fafb",
+              text: "#003d4d",
+              accent: "#00b8d9",
+              themebtn: "#e6b800",
+              "dark-bg": "#07293d",
+              "card-bg": "#ffffff",
+              "border-color": "#e1e8ee",
+              "btn-bg": "#00b8d9",
+              "btn-hover-bg": "#008891",
+              "btn-text": "#ffffff",
+              "nav-bg": "#142832",
+            },
+            
+            keyframes: {
+              rgb: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+                '100%': { backgroundPosition: '0% 50%' },
+              },
+              slide: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(300%)' },
+              },
+            },
+              
+            animation: {
+              "spin-slow": "spin 0.5s linear",
+              rgb: "rgb 6s linear infinite",
+              slide: 'slide 3s linear infinite',
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Theme check before paint -->
+    <script>
+      (() => {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body
+    class="bg-bg text-text dark:bg-dark-bg dark:text-white font-[Poppins] transition-colors duration-300"
+  >
+    <!-- Navbar -->
+    <nav
+      class="flex items-center justify-between sticky top-0 z-50 py-4 px-7 bg-gray-300/90 dark:bg-nav-bg backdrop-blur-md shadow-md transition-colors duration-300"
+    >
+      <a href="index.html" class="flex items-center space-x-3">
+        <img
+          src="assets/graphics/logo.png"
+          alt="UpBytes Logo"
+          class="h-10 w-auto"
+        />
+        <span
+          class="text-2xl ml-0 font-extrabold text-accent tracking-wide hover:text-blue-500 transition-colors duration-300"
+          >UpBytes</span
+        >
+      </a>
+      <div class="flex items-center">
+        <a
+          href="courses.html"
+          class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
+          >Courses</a
+        >
+        <a
+          href="./quiz/quizzes.html"
+          class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
+          >Quizzes</a
+        >
+        <a
+          href="editor.html"
+          class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
+          >Code Editor</a
+        >
+        <button
+          onclick="toggleTheme()"
+          aria-label="Toggle Theme"
+          class="w-12 h-12 ml-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all duration-300 shadow-md"
+        >
+          <span id="theme-toggle-icon" class="material-icons text-2xl"
+            >dark_mode</span
+          >
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section
+      class="hero relative min-h-[90vh] flex flex-col items-center justify-center text-center text-white overflow-hidden bg-gradient-to-tr from-[#002d70] to-[#800079]"
+    >
+      <div
+        class="absolute w-[700px] h-[700px] rounded-full bg-white/10 blur-[140px] top-[-150px] right-[-150px]"
+      ></div>
+      <h1 class="text-6xl md:text-7xl text-balance line-spacing-10px tracking-tighter font-extrabold mb-4">
+        Learn Coding & Get Certified<br />
+        <span class="block leading-[1.2]">with UpBytes</span>
+      </h1>
+      <p class="text-lg md:text-2xl max-w-xl mx-auto mb-10">
+        Your journey to mastering web development starts here. Interactive
+        courses, live code editor, quizzes & certificates.
+      </p>
+      <a
+        href="courses.html"
+        class="bg-white text-[#005f73] font-bold text-lg px-8 py-4 rounded-full shadow-lg hover:bg-[#008891] hover:text-white transition-transform duration-300 hover:-translate-y-1"
+        >Explore Courses</a
+      >
+    </section>
+
+    <!-- Stats -->
+    <section
+      class="flex flex-wrap justify-center gap-12 text-center text-[#398696] my-16"
+    >
+      <div>
+        <div class="text-5xl font-extrabold mb-2">35000+</div>
+        <div class="font-semibold">Students Enrolled</div>
+      </div>
+      <div>
+        <div class="text-5xl font-extrabold mb-2">250+</div>
+        <div class="font-semibold">Interactive Lessons</div>
+      </div>
+      <div>
+        <div class="text-5xl font-extrabold mb-2">20</div>
+        <div class="font-semibold">Certificates</div>
+      </div>
+    </section>
+
+    <!-- Featured Courses -->
+<section class="max-w-6xl mx-auto mb-20 px-4">
+  <h2 class="text-3xl md:text-4xl font-extrabold text-[#005f73] dark:text-white text-center mb-10">
+    Featured Courses
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Card -->
+    <div class="group [perspective:1000px]">
+      <a
+        href="html-course/course-html.html"
+        class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+      >
+        <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+          HTML Fundamentals
+        </h3>
+        <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+          Learn the basics of HTML5 to structure your webpages effectively and semantically.
+        </p>
+        <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+          View Course
+        </span>
+      </a>
+    </div>
+
+    <!-- Card -->
+    <div class="group [perspective:1000px]">
+      <a
+        href="css-course/course-css.html"
+        class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+      >
+        <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+          CSS Styling
+        </h3>
+        <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+          Master CSS to beautifully style your websites with layouts, animations, and responsive design.
+        </p>
+        <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+          View Course
+        </span>
+      </a>
+    </div>
+
+    <!-- Card -->
+    <div class="group [perspective:1000px]">
+      <a
+        href="js-course/course-js.html"
+        class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+      >
+        <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+          JavaScript Basics
+        </h3>
+        <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+          Understand JavaScript fundamentals to add interactivity and dynamic content to your sites.
+        </p>
+        <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+          View Course
+        </span>
+      </a>
+    </div>
+
+    <!-- Card -->
+    <div class="group [perspective:1000px]">
+      <a
+        href="react-course/course-react.html"
+        class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+      >
+        <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+          React Introduction
+        </h3>
+        <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+          Start building modern single-page apps using React and component-driven architecture.
+        </p>
+        <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+          View Course
+        </span>
+      </a>
+    </div>
+
+    <!-- Card -->
+    <div class="group [perspective:1000px]">
+      <a
+        href="nodexpress-course/course-node.html"
+        class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+      >
+        <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+          Node.js & Express
+        </h3>
+        <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+          Learn backend development with Node.js and Express to create powerful web servers.
+        </p>
+        <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+          View Course
+        </span>
+      </a>
+    </div>
+
+    <!-- Card -->
+    <div class="group [perspective:1000px]">
+      <a
+        href="mongo-course/course-mongodb.html"
+        class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+      >
+        <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+          MongoDB
+        </h3>
+        <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+          Explore MongoDB’s flexible document model and learn how to build and query databases efficiently.
+        </p>
+        <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+          View Course
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="bg-[#003d4d] text-[#a9cfd8] px-8 py-12">
+      <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-8">
+        <div class="flex-1 min-w-[220px]">
+          <h4 class="text-white font-bold mb-4">UpBytes</h4>
+          <p>
+            Empowering learners to code and earn certificates with interactive
+            content and real projects.
+          </p>
+        </div>
+        <div class="flex-1 min-w-[220px]">
+          <h4 class="text-white font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+            <li>
+              <a href="courses.html" class="hover:text-yellow-400">Courses</a>
+            </li>
+            <li>
+              <a href="./quiz/quizzes.html" class="hover:text-yellow-400">Quizzes</a>
+            </li>
+            <li>
+              <a href="editor.html" class="hover:text-yellow-400">Code Editor</a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1 min-w-[220px]">
+          <h4 class="text-white font-bold mb-4">Contact</h4>
+          <p>Email: info@upbytes.com</p>
+          <p>Phone: 011 5541 2890</p>
+        </div>
+      </div>
+      <div class="text-center text-sm mt-8 text-[#6c8d9c]">
+        &copy; 2025 UpBytes. All rights reserved.
+      </div>
+    </footer>
+
+    <div
+    id="signin-modal"
+    class="hidden fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center z-[9999] transition-all"
+  >
+    <div
+      id="modal-content"
+      class="relative bg-white dark:bg-[#0d3b52] p-6 rounded-2xl shadow-xl max-w-sm w-full text-center transform scale-95 opacity-0 transition-all duration-300 overflow-hidden"
+    >
+      <!-- Status bar -->
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-themebtn to-pink-500 animate-slide"></div>
+  
+      <!-- Close button -->
+<button
+id="close-modal"
+aria-label="Close modal"
+class="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center 
+       bg-gray-200 dark:bg-gray-700 
+       hover:bg-accent hover:text-white 
+       transition-all duration-300 transform hover:scale-110 hover:rotate-90"
+>
+<span class="material-icons text-lg">close</span>
+</button>
+
+  
+      <h2 class="text-xl font-bold mb-4 text-[#005f73] dark:text-white">
+        Sign in Required
+      </h2>
+      <p class="mb-6 text-gray-700 dark:text-gray-300">
+        You need to sign in to access this course.
+      </p>
+  
+      <div class="flex justify-center gap-4">
+        <button
+          id="cancel-modal"
+          class="px-4 py-2 rounded-lg border border-gray-400 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition transform hover:scale-105"
+        >
+          Cancel
+        </button>
+        <button
+          id="signin-modal-btn"
+          class="px-4 py-2 rounded-lg bg-accent text-white font-semibold hover:bg-[#008891] transition transform hover:scale-105"
+        >
+          Sign In
+        </button>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+    <script src="assets/js/script.js"></script>
+    <script>
+      
+      (() => {
+        const cards = document.querySelectorAll(".course-card");
+    
+        cards.forEach((card) => {
+          const group = card.parentElement;
+    
+          let rx = 0, ry = 0;          // current rotation
+          let tx = 0, ty = 0;          // target rotation
+          let s = 1, ts = 1;           // current & target scale
+          let rafId = null;
+          let hovering = false;
+    
+          const lerp = (a, b, t) => a + (b - a) * t;
+    
+          function animate() {
+            rx = lerp(rx, tx, 0.12);
+            ry = lerp(ry, ty, 0.12);
+            s  = lerp(s,  ts, 0.12);
+    
+            card.style.transform = `translateZ(0) rotateX(${rx}deg) rotateY(${ry}deg) scale(${s})`;
+    
+            const stillMoving =
+              Math.abs(tx - rx) > 0.01 ||
+              Math.abs(ty - ry) > 0.01 ||
+              Math.abs(ts - s)  > 0.001;
+    
+            if (hovering || stillMoving) {
+              rafId = requestAnimationFrame(animate);
+            } else {
+              rafId = null;
+            }
+          }
+    
+          function ensureAnimating() {
+            if (rafId == null) rafId = requestAnimationFrame(animate);
+          }
+    
+          group.addEventListener("mousemove", (e) => {
+            const rect = group.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+    
+            // normalize to [-1, 1]
+            const nx = (x / rect.width) * 2 - 1;
+            const ny = (y / rect.height) * 2 - 1;
+    
+            // max 10deg tilt
+            tx = -ny * 10;
+            ty =  nx * 10;
+          }, { passive: true });
+    
+          group.addEventListener("mouseenter", () => {
+            hovering = true;
+            ts = 1.05;
+            ensureAnimating();
+          });
+    
+          group.addEventListener("mouseleave", () => {
+            hovering = false;
+            tx = 0; ty = 0; ts = 1;
+            ensureAnimating(); // glide back, then stop
+          });
+        });
+      })();
+
+    </script>
+    
+    
+  </body>
+</html>

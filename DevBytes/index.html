@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UpBytes - Learn Coding & Get Certified</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <link rel="shortcut icon" href="assets/graphics/logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script>
+    const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+const isDark = savedTheme === 'dark' || (savedTheme === null && userPrefersDark);
+
+if (isDark) {
+  document.documentElement.classList.add('dark'); // ✅ not dark-theme
+} else {
+  document.documentElement.classList.remove('dark');
+}
+
+  </script>
+  <!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Optional: Your Tailwind config -->
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: '#f9fafb',
+          text: '#1f67a1',
+          accent: '#00b8d9',
+          themebtn: '#e6b800',
+          'dark-bg': '#07293d',
+          'card-bg': '#ffffff',
+          'border-color': '#e1e8ee',
+          'btn-bg': '#00b8d9',
+          'btn-hover-bg': '#008891',
+          'btn-text': '#ffffff',
+          'nav-bg': '#142832'
+        },
+        animation: {
+          'spin-slow': 'spin 0.5s linear'
+        }
+      }
+    }
+  }
+
+</script>
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/index.css" />
+
+  <style>
+    /* Additional large landing page styling */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #002d70 0%, #800079 100%);
+      color: white;
+      text-align: center;
+      padding: 0 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      font-size: 4.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #005f73;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgb(0 95 115 / 0.35);
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #008891;
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .blob {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      filter: blur(140px);
+      top: -150px;
+      right: -150px;
+      z-index: 0;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+      margin: 5rem 0 4rem;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      color: #398696;
+    }
+
+    .stats .stat {
+      font-weight: 700;
+    }
+
+    .stats .number {
+      font-size: 3.4rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Featured courses preview */
+    .featured {
+      max-width: 1200px;
+      margin: 0 auto 6rem;
+      padding: 0 2rem;
+    }
+
+    .featured h2 {
+      font-weight: 800;
+      font-size: 2.8rem;
+      color: #005f73;
+      margin-bottom: 1.8rem;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2.2rem;
+    }
+
+    .course-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 12px 30px rgb(0 95 115 / 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: #005f73;
+    }
+
+    .course-card:hover {
+      box-shadow: 0 18px 40px rgb(0 95 115 / 0.18);
+      transform: translateY(-10px);
+    }
+
+    .course-card h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .course-card p {
+      font-weight: 400;
+      flex-grow: 1;
+      margin-bottom: 1.3rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .course-card .btn {
+      align-self: flex-start;
+      background: #00b8d9;
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .course-card .btn:hover {
+      background: #008891;
+    }
+
+    /* Footer */
+    footer {
+      background: #003d4d;
+      color: #a9cfd8;
+      padding: 2.5rem 2rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    footer .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    footer .footer-section {
+      flex: 1 1 220px;
+    }
+
+    footer h4 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    footer p, footer a {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #a9cfd8;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    footer a:hover {
+      color: yellow;
+    }
+
+    footer .footer-bottom {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c8d9c;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .stats {
+        flex-direction: column;
+        gap: 3rem;
+      }
+      .course-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="bg-bg m-0 transition-colors duration-300 ease-in-out dark:bg-dark-bg ">
+
+  <nav class="flex items-center justify-between sticky top-0 z-50 py-4 px-7 bg-gray-300/90 dark:bg-nav-bg bg-opacity-95 backdrop-blur-md  shadow-md">
+    <a href="index.html" class="logo flex items-center space-x-3">
+      <img src="assets/graphics/logo.png" alt="UpBytes Logo" class="h-10 w-auto" />
+      <span class="text-2xl font-extrabold text-accent tracking-wide hover:text-blue-500 transition-colors duration-300">UpBytes</span>
+    </a>        
+    <div class="nav-links flex flex-nowrap items-center">
+      <a href="courses.html" class="inline-block relative ml-7 py-1 font-black no-underline transition-transform transition-colors transition-opacity duration-300 ease-in-out hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90 will-change-transform dark:text-text">Courses</a>
+      <a href="./quiz/quizzes.html" class="inline-block relative ml-7 py-1 font-black no-underline transition-transform transition-colors transition-opacity duration-300 ease-in-out hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90 will-change-transform dark:text-text">Quizzes</a>
+      <a href="editor.html" class="inline-block relative ml-7 py-1 font-black no-underline transition-transform transition-colors transition-opacity duration-300 ease-in-out hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90 will-change-transform dark:text-text">Code Editor</a>
+      <button onclick="toggleTheme()" aria-label="Toggle Theme" class="w-12 h-12 ml-10 flex items-center justify-center rounded-full text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all duration-300 shadow-md">
+        <span id="theme-toggle-icon" class="material-icons text-2xl transition-transform duration-500">dark_mode</span>
+      </button>
+
+
+
+
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="blob"></div>
+    <h1>Learn Coding & Get Certified<br />with UpBytes</h1>
+    <p>Your journey to mastering web development starts here. Interactive courses, live code editor, quizzes & certificates.</p>
+    <a href="courses.html" class="btn-primary">Explore Courses</a>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="number">35000+</div>
+      <div>Students Enrolled</div>
+    </div>
+    <div class="stat">
+      <div class="number">250+</div>
+      <div>Interactive Lessons</div>
+    </div>
+    <div class="stat">
+      <div class="number">20</div>
+      <div>Certificates</div>
+    </div>
+  </section>
+
+  <section class="featured">
+    <h2>Featured Courses</h2>
+    <div class="course-grid">
+      <a href="html-course/course-html.html" class="course-card">
+        <h3>HTML Fundamentals</h3>
+        <p>Learn the basics of HTML5 to structure your webpages effectively and semantically.</p>
+        <span class="btn" role="button">View Course</span>
+      </a>
+      <a href="css-course/course-css.html" class="course-card">
+        <h3>CSS Styling</h3>
+        <p>Master CSS to beautifully style your websites with layouts, animations, and responsive design.</p>
+        <span class="btn" role="button">View Course</span>
+      </a>
+      <a href="js-course/course-js.html" class="course-card">
+        <h3>JavaScript Basics</h3>
+        <p>Understand JavaScript fundamentals to add interactivity and dynamic content to your sites.</p>
+        <span class="btn" role="button">View Course</span>
+      </a>
+      <a href="react-course/course-react.html" class="course-card">
+        <h3>React Introduction</h3>
+        <p>Start building modern single-page apps using React and component-driven architecture.</p>
+        <span class="btn" role="button">View Course</span>
+      </a>
+      <a href="nodexpress-course/course-node.html" class="course-card">
+        <h3>Node.js & Express</h3>
+        <p>Learn backend development with Node.js and Express to create powerful web servers.</p>
+        <span class="btn" role="button">View Course</span>
+      </a>
+      <a href="mongo-course/course-mongodb.html" class="course-card">
+        <h3>MongoDB</h3>
+        <p>Explore MongoDB’s flexible document model and learn how to build and query databases efficiently.</p>
+        <span class="btn" role="button">View Course</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>UpBytes</h4>
+        <p>Empowering learners to code and earn certificates with interactive content and real projects.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="courses.html">Courses</a></p>
+        <p><a href="/quiz/quizzes.html">Quizzes</a></p>
+        <p><a href="editor.html">Code Editor</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@upbytes.com</p>
+        <p>Phone: +1 234 567 890</p>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 UpBytes. All rights reserved.</div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+
+</body>
+</html>

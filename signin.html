@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth | UpBytes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              bg: "#f9fafb",
+              accent: "#00b8d9",
+              "accent-dark": "#008891",
+              "dark-bg": "#0d1b2a",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-bg dark:bg-dark-bg min-h-screen flex items-center justify-center px-4 overflow-hidden"
+  >
+    <!-- Auth Card -->
+    <div
+      class="relative bg-white dark:bg-[#112d42] rounded-2xl shadow-2xl w-full max-w-md p-8 transition-all duration-300"
+    >
+      <!-- Sign In -->
+      <div id="signin-form" class="space-y-6">
+        <h2
+          class="text-2xl font-bold text-center text-gray-800 dark:text-gray-100"
+        >
+          Sign In
+        </h2>
+
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            required
+            class="mt-1 block w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-[#0b2535] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-accent"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div class="relative">
+          <label
+            for="password"
+            class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >Password</label
+          >
+          <input
+            type="password"
+            id="password"
+            required
+            class="mt-1 block w-full px-4 py-3 pr-10 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-[#0b2535] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-accent"
+            placeholder="••••••••"
+          />
+          <span
+            onclick="togglePassword('password', this)"
+            class="material-symbols-outlined absolute right-3 top-9 cursor-pointer text-gray-500 hover:text-accent"
+          >
+            visibility
+          </span>
+        </div>
+
+        <button
+          onclick="signIn()"
+          class="w-full bg-accent hover:bg-accent-dark text-white py-3 rounded-xl font-semibold transition-transform duration-200 hover:scale-[1.02] shadow-md"
+        >
+          Sign In
+        </button>
+
+        <!-- OAuth -->
+        <div class="flex items-center gap-4">
+          <button
+            class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border rounded-xl hover:bg-gray-100 dark:hover:bg-[#0b2535] transition"
+          >
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5" />
+            Google
+          </button>
+          <button
+            class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-white border rounded-xl hover:bg-gray-100 dark:hover:bg-[#0b2535] transition"
+          >
+            <img src="https://www.svgrepo.com/show/475654/github-color.svg" class="w-5 h-5" />
+            GitHub
+          </button>
+        </div>
+
+        <p
+          class="text-sm text-center text-gray-600 dark:text-gray-400"
+        >
+          Don’t have an account?
+          <a href="#" onclick="switchForm('signup')" class="text-accent hover:underline"
+            >Sign Up</a
+          >
+        </p>
+      </div>
+
+      <!-- Sign Up -->
+      <div id="signup-form" class="space-y-6 hidden">
+        <h2
+          class="text-2xl font-bold text-center text-gray-800 dark:text-gray-100"
+        >
+          Create Account
+        </h2>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+              >First Name</label
+            >
+            <input
+              type="text"
+              id="first-name"
+              class="mt-1 block w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-[#0b2535] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-accent"
+              placeholder="John"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+              >Last Name</label
+            >
+            <input
+              type="text"
+              id="last-name"
+              class="mt-1 block w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-[#0b2535] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-accent"
+              placeholder="Doe"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+          <input
+            type="email"
+            id="signup-email"
+            class="mt-1 block w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-[#0b2535] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-accent"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div class="relative">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >Create Password</label
+          >
+          <input
+            type="password"
+            id="signup-password"
+            class="mt-1 block w-full px-4 py-3 pr-10 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-[#0b2535] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-accent"
+            placeholder="••••••••"
+          />
+          <span
+            onclick="togglePassword('signup-password', this)"
+            class="material-symbols-outlined absolute right-3 top-9 cursor-pointer text-gray-500 hover:text-accent"
+          >
+            visibility
+          </span>
+        </div>
+
+        <div class="relative">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            id="confirm-password"
+            class="mt-1 block w-full px-4 py-3 pr-10 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-[#0b2535] text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-accent"
+            placeholder="••••••••"
+          />
+          <span
+            onclick="togglePassword('confirm-password', this)"
+            class="material-symbols-outlined absolute right-3 top-9 cursor-pointer text-gray-500 hover:text-accent"
+          >
+            visibility
+          </span>
+        </div>
+
+        <!-- Password rules -->
+        <ul class="text-xs text-gray-500 dark:text-gray-400 list-disc ml-4">
+          <li>At least 6 characters</li>
+          <li>Must include a number</li>
+          <li>Must include a symbol</li>
+        </ul>
+
+        <!-- T&C -->
+        <p class="text-xs text-gray-600 dark:text-gray-400">
+          By proceeding, you agree to UpBytes’ Terms & Conditions.
+        </p>
+
+        <button
+          onclick="signUp()"
+          class="w-full bg-accent hover:bg-accent-dark text-white py-3 rounded-xl font-semibold transition-transform duration-200 hover:scale-[1.02] shadow-md"
+        >
+          Create Account
+        </button>
+
+        <p class="text-sm text-center text-gray-600 dark:text-gray-400">
+          Already have an account?
+          <a href="#" onclick="switchForm('signin')" class="text-accent hover:underline"
+            >Sign In</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="hidden"></div>
+
+    <script>
+      const signinForm = document.getElementById("signin-form");
+      const signupForm = document.getElementById("signup-form");
+
+      function switchForm(form) {
+        if (form === "signup") {
+          signinForm.classList.add("hidden");
+          signupForm.classList.remove("hidden");
+        } else {
+          signupForm.classList.add("hidden");
+          signinForm.classList.remove("hidden");
+        }
+      }
+
+      function togglePassword(id, el) {
+        const input = document.getElementById(id);
+        if (input.type === "password") {
+          input.type = "text";
+          el.textContent = "visibility_off";
+        } else {
+          input.type = "password";
+          el.textContent = "visibility";
+        }
+      }
+
+      function showToast(msg, success = false) {
+        const toast = document.getElementById("toast");
+        toast.textContent = msg;
+        toast.className =
+          "fixed bottom-6 right-6 px-4 py-3 rounded-lg shadow-lg text-white text-sm transition transform " +
+          (success ? "bg-green-600" : "bg-red-600");
+        toast.classList.remove("hidden");
+        setTimeout(() => toast.classList.add("hidden"), 2000);
+      }
+
+      function signIn() {
+        const email = document.getElementById("email").value.trim();
+        const pass = document.getElementById("password").value.trim();
+        if (!email || !pass) return showToast("Fill all fields!");
+        localStorage.setItem("isSignedIn", "true");
+        showToast("Signed in!", true);
+        setTimeout(() => (window.location.href = "courses.html"), 800);
+      }
+
+      function signUp() {
+        const fname = document.getElementById("first-name").value.trim();
+        const lname = document.getElementById("last-name").value.trim();
+        const email = document.getElementById("signup-email").value.trim();
+        const pass = document.getElementById("signup-password").value.trim();
+        const confirm = document.getElementById("confirm-password").value.trim();
+
+        if (!fname || !lname || !email || !pass || !confirm)
+          return showToast("Fill all fields!");
+        if (pass.length < 6) return showToast("Password must be at least 6 characters!");
+        if (!/[0-9]/.test(pass)) return showToast("Password must include a number!");
+        if (!/[^A-Za-z0-9]/.test(pass)) return showToast("Password must include a symbol!");
+        if (pass !== confirm) return showToast("Passwords do not match!");
+
+        localStorage.setItem("isSignedIn", "true");
+        showToast("Account created!", true);
+        setTimeout(() => switchForm("signin"), 1000);
+      }
+
+      // Theme detection
+      document.addEventListener("DOMContentLoaded", () => {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const saved = localStorage.getItem("theme");
+        const isDark = saved === "dark" || (!saved && prefersDark);
+        if (isDark) document.documentElement.classList.add("dark");
+      });
+    </script>
+  </body>
+</html>

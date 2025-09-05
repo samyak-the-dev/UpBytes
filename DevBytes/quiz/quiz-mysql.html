@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UpBytes - HTML Fundamentals Quiz</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/index.css" />
+  <script>
+    const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const isDark = savedTheme === 'dark' || (savedTheme === null && userPrefersDark);
+    if (isDark) {
+      document.documentElement.classList.add('dark-theme');
+    }
+  </script>
+  <style>
+    main {
+      max-width: 700px;
+      margin: 3rem auto 6rem;
+      padding: 0 1.5rem;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: 2.8rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .quiz-container {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgb(0 184 217 / 0.15);
+      transition: background-color 0.3s ease;
+    }
+
+    .question {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 2rem;
+    }
+
+    .options li {
+      margin-bottom: 1rem;
+    }
+
+    .options input[type="radio"] {
+      margin-right: 12px;
+      cursor: pointer;
+    }
+
+    button.submit-btn {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 0.75rem 1.6rem;
+      font-weight: 700;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    button.submit-btn:hover {
+      background: var(--btn-hover-bg);
+    }
+
+    .result {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .try-again {
+      margin-top: 1rem;
+      background: var(--btn-hover-bg);
+      color: var(--btn-text);
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .try-again:hover {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+    }
+    /* Footer */
+    footer {
+      background: #003d4d;
+      color: #a9cfd8;
+      padding: 2.5rem 2rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    footer .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    footer .footer-section {
+      flex: 1 1 220px;
+    }
+
+    footer h4 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    footer p, footer a {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #a9cfd8;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    footer a:hover {
+      color: yellow;
+    }
+
+    footer .footer-bottom {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c8d9c;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">UpBytes</a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../courses.html">Courses</a>
+      <a href="quizzes.html">Quizzes</a>
+      <a href="../editor.html">Code Editor</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+        <span class="material-icons" id="theme-toggle-icon">dark_mode</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <h1>HTML Fundamentals Quiz</h1>
+
+    <div class="quiz-container" id="quiz">
+
+      <!-- Quiz questions will be injected here -->
+      
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>UpBytes</h4>
+        <p>Empowering learners to code and earn certificates with interactive content and real projects.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <p><a href="../index.html">Home</a></p>
+        <p><a href="../courses.html">Courses</a></p>
+        <p><a href="../quizzes.html">Quizzes</a></p>
+        <p><a href="../editor.html">Code Editor</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@upbytes.com</p>
+        <p>Phone: +1 234 567 890</p>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 UpBytes. All rights reserved.</div>
+  </footer>
+<script src="../js/script.js"></script>
+  <script>
+    const quizData = [
+      {
+        question: "What does HTML stand for?",
+        options: [
+          "Hyper Text Markup Language",
+          "Home Tool Markup Language",
+          "Hyperlinks and Text Markup Language",
+          "Hyperlinking Text Marking Language"
+        ],
+        answer: 0
+      },
+      {
+        question: "Which HTML element is used to define the largest heading?",
+        options: [
+          "head",
+          "h1",
+          "heading",
+          "h6"
+        ],
+        answer: 1
+      },
+      {
+        question: "What attribute is used to provide alternative text for images?",
+        options: [
+          "alt",
+          "src",
+          "title",
+          "href"
+        ],
+        answer: 0
+      },
+      {
+        question: "Which element is used for creating a hyperlink?",
+        options: [
+          "a",
+          "link",
+          "href",
+          "hyperlink"
+        ],
+        answer: 0
+      },
+      {
+        question: "Which HTML element is used to embed an image?",
+        options: [
+          "img",
+          "image",
+          "pic",
+          "src"
+        ],
+        answer: 0
+      }
+    ];
+
+    const quizContainer = document.getElementById('quiz');
+
+    let currentAnswers = [];
+
+    function loadQuiz() {
+      const output = quizData.map((q, index) => {
+        return `
+          <div class="question-block">
+            <div class="question">${index + 1}. ${q.question}</div>
+            <ul class="options">
+              ${q.options.map((option, i) => `
+                <li>
+                  <label>
+                    <input type="radio" name="question${index}" value="${i}" />
+                    ${option}
+                  </label>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        `;
+      }).join('') + `<button class="submit-btn" id="submit">Submit Answers</button>
+      <div class="result" id="result"></div>`;
+
+      quizContainer.innerHTML = output;
+
+      document.getElementById('submit').addEventListener('click', checkAnswers);
+    }
+
+    function checkAnswers() {
+      let score = 0;
+      for(let i = 0; i < quizData.length; i++) {
+        const selected = document.querySelector(`input[name=question${i}]:checked`);
+        if(selected) {
+          if(parseInt(selected.value) === quizData[i].answer) {
+            score++;
+          }
+        }
+      }
+    }
+
+      const resultEl = document.getElementById('result');
+      resultEl.textContent = `You scored ${score} out of ${quizData.length}!`;
+
+      // Disable all inputs after submit
+      const allInputs = quizContainer.querySelectorAll('input[type="radio"]');
+      allInputs.forEach(input => input.disabled = true);
+
+      // Disable submit button & add try again
+      const submitBtn = document.getElementById('submit');
+      submitBtn.disabled = true;
+      submitBtn.style.cursor = 'not-allowed';
+
+      const tryAgainBtn = document.createElement('button');
+      tryAgainBtn.textContent = "Try Again";
+      tryAgainBtn.className = "try-again";
+      tryAgainBtn.onclick = () => {
+        loadQuiz();
+      };
+      quizContainer.appendChild(tryAgainBtn);
+
+    // Theme toggle function reused from other pages
+    
+  </script>
+</body>
+</html>

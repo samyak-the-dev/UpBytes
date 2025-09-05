@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UpBytes - Courses</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css" />
+  <script>
+    const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const isDark = savedTheme === 'dark' || (savedTheme === null && userPrefersDark);
+    if (isDark) {
+      document.documentElement.classList.add('dark-theme');
+    }
+  </script>
+  <style>
+    main {
+      max-width: 900px;
+      margin: 3rem auto 6rem;
+      padding: 0 1.5rem;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+    }
+    h1 {
+      font-weight: 800;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+      color: var(--accent);
+      text-align: center;
+    }
+    .courses-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+    }
+    .course-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgb(0 184 217 / 0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgb(0 184 217 / 0.3);
+    }
+    .course-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .course-desc {
+      flex-grow: 1;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 25px;
+    }
+    .course-link {
+      font-weight: 600;
+      color: var(--btn-bg);
+      align-self: flex-start;
+      border: 2px solid var(--btn-bg);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+    }
+    .course-link:hover {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+    }
+    /* Footer */
+    footer {
+      background: #003d4d;
+      color: #a9cfd8;
+      padding: 2.5rem 2rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    footer .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    footer .footer-section {
+      flex: 1 1 220px;
+    }
+
+    footer h4 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    footer p, footer a {
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: #a9cfd8;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    footer a:hover {
+      color: yellow;
+    }
+
+    footer .footer-bottom {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c8d9c;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">UpBytes</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="/quiz/quizzes.html">Quizzes</a>
+      <a href="editor.html">Code Editor</a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
+        <span class="material-icons" id="theme-toggle-icon">dark_mode</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Our Courses</h1>
+    <div class="courses-list">
+
+      <a href="html-course/course-html.html" class="course-card" aria-label="HTML Fundamentals Course">
+        <div class="course-title">HTML Fundamentals</div>
+        <div class="course-desc">Learn the building blocks of web development with HTML basics, elements, and semantic markup.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="css-course/course-css.html" class="course-card" aria-label="CSS Fundamentals Course">
+        <div class="course-title">CSS Fundamentals</div>
+        <div class="course-desc">Style websites with CSS including selectors, box model, flexbox, and responsive design.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="js-course/course-js.html" class="course-card" aria-label="JavaScript Basics Course">
+        <div class="course-title">JavaScript Basics</div>
+        <div class="course-desc">Understand programming fundamentals with JavaScript including variables, functions, and DOM manipulation.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="react-course/course-react.html" class="course-card" aria-label="React Introduction Course">
+        <div class="course-title">React Introduction</div>
+        <div class="course-desc">Dive into modern UI development with React: components, props, state, and hooks.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="python-course/course-python.html" class="course-card" aria-label="Python Programming Course">
+        <div class="course-title">Python Programming</div>
+        <div class="course-desc">Master Python basics, syntax, data structures, and write simple programs.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="mongo-course/course-mongodb.html" class="course-card" aria-label="MongoDB Course">
+        <div class="course-title">MongoDB Essentials</div>
+        <div class="course-desc">Get started with MongoDB and learn how this powerful NoSQL database stores and organizes your app’s data.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="/nodexpress-course/course-node.html" class="course-card" aria-label="Node.js + Express Course">
+        <div class="course-title">Node.js + Express Basics</div>
+        <div class="course-desc">Learn the building blocks of web development with HTML basics, elements, and semantic markup.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="git-course/course-git.html" class="course-card" aria-label="Git Version Management Course">
+        <div class="course-title">Git Version Management</div>
+        <div class="course-desc">Style websites with CSS including selectors, box model, flexbox, and responsive design.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="mysql-course/course-mysql.html" class="course-card" aria-label="MySQL Course">
+        <div class="course-title">MySQL Database</div>
+        <div class="course-desc">Understand programming fundamentals with JavaScript including variables, functions, and DOM manipulation.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="react-course/course-react.html" class="course-card" aria-label="React Introduction Course">
+        <div class="course-title">React Introduction</div>
+        <div class="course-desc">Dive into modern UI development with React: components, props, state, and hooks.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="python-course/course-python.html" class="course-card" aria-label="Python Programming Course">
+        <div class="course-title">Python Programming</div>
+        <div class="course-desc">Master Python basics, syntax, data structures, and write simple programs.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+      <a href="mongo-course/course-mongodb.html" class="course-card" aria-label="MongoDB Course">
+        <div class="course-title">MongoDB Essentials</div>
+        <div class="course-desc">Get started with MongoDB and learn how this powerful NoSQL database stores and organizes your app’s data.</div>
+        <div class="course-link">Start Learning →</div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>UpBytes</h4>
+        <p>Empowering learners to code and earn certificates with interactive content and real projects.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="courses.html">Courses</a></p>
+        <p><a href="quiz/quizzes.html">Quizzes</a></p>
+        <p><a href="editor.html">Code Editor</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: support@upbytes.com</p>
+        <p>Phone: +1 234 567 890</p>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 UpBytes. All rights reserved.</div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
