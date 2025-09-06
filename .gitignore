@@ -9,5 +9,5 @@ Thumbs.db
 # Logs
 *.log
 
-# Env files (if you add secrets later)
+# Env files
 .env

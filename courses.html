@@ -7,6 +7,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Dark mode config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            bg: "#f9fafb",
+            text: "#003d4d",
+            accent: "#00b8d9",
+            themebtn: "#e6b800",
+            "dark-bg": "#07293d",
+            "card-bg": "#ffffff",
+            "border-color": "#e1e8ee",
+            "btn-bg": "#00b8d9",
+            "btn-hover-bg": "#008891",
+            "btn-text": "#ffffff",
+            "nav-bg": "#142832",
+          },
+          
+          keyframes: {
+            rgb: {
+              '0%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+              '100%': { backgroundPosition: '0% 50%' },
+            },
+            slide: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(300%)' },
+            },
+          },
+            
+          animation: {
+            "spin-slow": "spin 0.5s linear",
+            rgb: "rgb 6s linear infinite",
+          },
+        },
+      },
+    };
+  </script>
   <script>
     const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const savedTheme = localStorage.getItem('theme');
@@ -15,232 +58,423 @@
       document.documentElement.classList.add('dark-theme');
     }
   </script>
-  <style>
-    main {
-      max-width: 900px;
-      margin: 3rem auto 6rem;
-      padding: 0 1.5rem;
-      font-family: 'Poppins', sans-serif;
-      color: var(--text);
-    }
-    h1 {
-      font-weight: 800;
-      font-size: 2.8rem;
-      margin-bottom: 2rem;
-      color: var(--accent);
-      text-align: center;
-    }
-    .courses-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
-    }
-    .course-card {
-      background: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgb(0 184 217 / 0.15);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      color: var(--text);
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .course-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 28px rgb(0 184 217 / 0.3);
-    }
-    .course-title {
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--accent);
-    }
-    .course-desc {
-      flex-grow: 1;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      line-height: 25px;
-    }
-    .course-link {
-      font-weight: 600;
-      color: var(--btn-bg);
-      align-self: flex-start;
-      border: 2px solid var(--btn-bg);
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      text-decoration: none;
-    }
-    .course-link:hover {
-      background-color: var(--btn-bg);
-      color: var(--btn-text);
-    }
-    /* Footer */
-    footer {
-      background: #003d4d;
-      color: #a9cfd8;
-      padding: 2.5rem 2rem;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    footer .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    footer .footer-section {
-      flex: 1 1 220px;
-    }
-
-    footer h4 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    footer p, footer a {
-      font-weight: 400;
-      font-size: 0.9rem;
-      color: #a9cfd8;
-      text-decoration: none;
-      line-height: 1.5;
-    }
-
-    footer a:hover {
-      color: yellow;
-    }
-
-    footer .footer-bottom {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #6c8d9c;
-    }
-  </style>
 </head>
-<body>
+<body class="bg-bg text-text dark:bg-dark-bg dark:text-white font-[Poppins] transition-colors duration-300">
 
-  <nav class="navbar">
-    <a href="index.html" class="logo">UpBytes</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="courses.html">Courses</a>
-      <a href="/quiz/quizzes.html">Quizzes</a>
-      <a href="editor.html">Code Editor</a>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">
-        <span class="material-icons" id="theme-toggle-icon">dark_mode</span>
-      </button>
-    </div>
-  </nav>
+  <nav
+      class="flex items-center justify-between sticky top-0 z-50 py-4 px-7 bg-gray-300/90 dark:bg-nav-bg backdrop-blur-md shadow-md transition-colors duration-300"
+    >
+      <a href="index.html" class="flex items-center space-x-3">
+        <img
+          src="assets/graphics/logo.png"
+          alt="UpBytes Logo"
+          class="h-10 w-auto"
+        />
+        <span
+          class="text-2xl ml-0 font-extrabold text-accent tracking-wide hover:text-blue-500 transition-colors duration-300"
+          >UpBytes</span
+        >
+      </a>
+      <div class="flex items-center">
+        <a
+          href="courses.html"
+          class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
+          >Courses</a
+        >
+        <a
+          href="./quiz/quizzes.html"
+          class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
+          >Quizzes</a
+        >
+        <a
+          href="editor.html"
+          class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
+          >Code Editor</a
+        >
+        <button
+          onclick="toggleTheme()"
+          aria-label="Toggle Theme"
+          class="w-12 h-12 ml-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all duration-300 shadow-md"
+        >
+          <span id="theme-toggle-icon" class="material-icons text-2xl"
+            >dark_mode</span
+          >
+        </button>
+      </div>
+    </nav>
 
   <main>
-    <h1>Our Courses</h1>
-    <div class="courses-list">
+    <h1 class>Our Courses</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="html-course/course-html.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            HTML Fundamentals
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Learn the basics of HTML5 to structure your webpages effectively and semantically.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="css-course/course-css.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            CSS Styling
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Master CSS to beautifully style your websites with layouts, animations, and responsive design.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="js-course/course-js.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            JavaScript Basics
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Understand JavaScript fundamentals to add interactivity and dynamic content to your sites.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="react-course/course-react.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            React Introduction
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Start building modern single-page apps using React and component-driven architecture.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="nodexpress-course/course-node.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            Node.js & Express
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Learn backend development with Node.js and Express to create powerful web servers.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="mongo-course/course-mongodb.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            MongoDB
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Explore MongoDB’s flexible document model and learn how to build and query databases efficiently.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
 
-      <a href="html-course/course-html.html" class="course-card" aria-label="HTML Fundamentals Course">
-        <div class="course-title">HTML Fundamentals</div>
-        <div class="course-desc">Learn the building blocks of web development with HTML basics, elements, and semantic markup.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="css-course/course-css.html" class="course-card" aria-label="CSS Fundamentals Course">
-        <div class="course-title">CSS Fundamentals</div>
-        <div class="course-desc">Style websites with CSS including selectors, box model, flexbox, and responsive design.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="js-course/course-js.html" class="course-card" aria-label="JavaScript Basics Course">
-        <div class="course-title">JavaScript Basics</div>
-        <div class="course-desc">Understand programming fundamentals with JavaScript including variables, functions, and DOM manipulation.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="react-course/course-react.html" class="course-card" aria-label="React Introduction Course">
-        <div class="course-title">React Introduction</div>
-        <div class="course-desc">Dive into modern UI development with React: components, props, state, and hooks.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="python-course/course-python.html" class="course-card" aria-label="Python Programming Course">
-        <div class="course-title">Python Programming</div>
-        <div class="course-desc">Master Python basics, syntax, data structures, and write simple programs.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="mongo-course/course-mongodb.html" class="course-card" aria-label="MongoDB Course">
-        <div class="course-title">MongoDB Essentials</div>
-        <div class="course-desc">Get started with MongoDB and learn how this powerful NoSQL database stores and organizes your app’s data.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="/nodexpress-course/course-node.html" class="course-card" aria-label="Node.js + Express Course">
-        <div class="course-title">Node.js + Express Basics</div>
-        <div class="course-desc">Learn the building blocks of web development with HTML basics, elements, and semantic markup.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="git-course/course-git.html" class="course-card" aria-label="Git Version Management Course">
-        <div class="course-title">Git Version Management</div>
-        <div class="course-desc">Style websites with CSS including selectors, box model, flexbox, and responsive design.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="mysql-course/course-mysql.html" class="course-card" aria-label="MySQL Course">
-        <div class="course-title">MySQL Database</div>
-        <div class="course-desc">Understand programming fundamentals with JavaScript including variables, functions, and DOM manipulation.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="react-course/course-react.html" class="course-card" aria-label="React Introduction Course">
-        <div class="course-title">React Introduction</div>
-        <div class="course-desc">Dive into modern UI development with React: components, props, state, and hooks.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="python-course/course-python.html" class="course-card" aria-label="Python Programming Course">
-        <div class="course-title">Python Programming</div>
-        <div class="course-desc">Master Python basics, syntax, data structures, and write simple programs.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
-      <a href="mongo-course/course-mongodb.html" class="course-card" aria-label="MongoDB Course">
-        <div class="course-title">MongoDB Essentials</div>
-        <div class="course-desc">Get started with MongoDB and learn how this powerful NoSQL database stores and organizes your app’s data.</div>
-        <div class="course-link">Start Learning →</div>
-      </a>
-
+      <div class="group [perspective:1000px]">
+        <a
+          href="html-course/course-html.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            HTML Fundamentals
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Learn the basics of HTML5 to structure your webpages effectively and semantically.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="css-course/course-css.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            CSS Styling
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Master CSS to beautifully style your websites with layouts, animations, and responsive design.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="js-course/course-js.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            JavaScript Basics
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Understand JavaScript fundamentals to add interactivity and dynamic content to your sites.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="react-course/course-react.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            React Introduction
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Start building modern single-page apps using React and component-driven architecture.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="nodexpress-course/course-node.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            Node.js & Express
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Learn backend development with Node.js and Express to create powerful web servers.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
+  
+      <!-- Card -->
+      <div class="group [perspective:1000px]">
+        <a
+          href="mongo-course/course-mongodb.html"
+          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
+        >
+          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
+            MongoDB
+          </h3>
+          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+            Explore MongoDB’s flexible document model and learn how to build and query databases efficiently.
+          </p>
+          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
+            View Course
+          </span>
+        </a>
+      </div>
     </div>
   </main>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>UpBytes</h4>
-        <p>Empowering learners to code and earn certificates with interactive content and real projects.</p>
+  <!-- Footer -->
+  <footer class="bg-[#003d4d] text-[#a9cfd8] px-8 py-12">
+    <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-8">
+      <div class="flex-1 min-w-[220px]">
+        <h4 class="text-white font-bold mb-4">UpBytes</h4>
+        <p>
+          Empowering learners to code and earn certificates with interactive
+          content and real projects.
+        </p>
       </div>
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <p><a href="index.html">Home</a></p>
-        <p><a href="courses.html">Courses</a></p>
-        <p><a href="quiz/quizzes.html">Quizzes</a></p>
-        <p><a href="editor.html">Code Editor</a></p>
+      <div class="flex-1 min-w-[220px]">
+        <h4 class="text-white font-bold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
+          <li>
+            <a href="courses.html" class="hover:text-yellow-400">Courses</a>
+          </li>
+          <li>
+            <a href="./quiz/quizzes.html" class="hover:text-yellow-400">Quizzes</a>
+          </li>
+          <li>
+            <a href="editor.html" class="hover:text-yellow-400">Code Editor</a>
+          </li>
+        </ul>
       </div>
-      <div class="footer-section">
-        <h4>Contact</h4>
-        <p>Email: support@upbytes.com</p>
-        <p>Phone: +1 234 567 890</p>
+      <div class="flex-1 min-w-[220px]">
+        <h4 class="text-white font-bold mb-4">Contact</h4>
+        <p>Email: info@upbytes.com</p>
+        <p>Phone: 011 5541 2890</p>
       </div>
     </div>
-    <div class="footer-bottom">&copy; 2025 UpBytes. All rights reserved.</div>
+    <div class="text-center text-sm mt-8 text-[#6c8d9c]">
+      &copy; 2025 UpBytes. All rights reserved.
+    </div>
   </footer>
 
-  <script src="/js/script.js"></script>
+  <div
+  id="signin-modal"
+  class="hidden fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center z-[9999] transition-all"
+>
+  <div
+    id="modal-content"
+    class="relative bg-white dark:bg-[#0d3b52] p-6 rounded-2xl shadow-xl max-w-sm w-full text-center transform scale-95 opacity-0 transition-all duration-300 overflow-hidden"
+  >
+    <!-- Status bar -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-themebtn to-pink-500 animate-slide"></div>
+
+    <!-- Close button -->
+<button
+id="close-modal"
+aria-label="Close modal"
+class="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center 
+     bg-gray-200 dark:bg-gray-700 
+     hover:bg-accent hover:text-white 
+     transition-all duration-300 transform hover:scale-110 hover:rotate-90"
+>
+<span class="material-icons text-lg">close</span>
+</button>
+
+
+    <h2 class="text-xl font-bold mb-4 text-[#005f73] dark:text-white">
+      Sign in Required
+    </h2>
+    <p class="mb-6 text-gray-700 dark:text-gray-300">
+      You need to sign in to access this course.
+    </p>
+
+    <div class="flex justify-center gap-4">
+      <button
+        id="cancel-modal"
+        class="px-4 py-2 rounded-lg border border-gray-400 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition transform hover:scale-105"
+      >
+        Cancel
+      </button>
+      <button
+        id="signin-modal-btn"
+        class="px-4 py-2 rounded-lg bg-accent text-white font-semibold hover:bg-[#008891] transition transform hover:scale-105"
+      >
+        Sign In
+      </button>
+    </div>
+  </div>
+</div>
+
+  <script src="assets/js/script.js"></script>
+  <script>
+      
+    (() => {
+      const cards = document.querySelectorAll(".course-card");
+  
+      cards.forEach((card) => {
+        const group = card.parentElement;
+  
+        let rx = 0, ry = 0;          // current rotation
+        let tx = 0, ty = 0;          // target rotation
+        let s = 1, ts = 1;           // current & target scale
+        let rafId = null;
+        let hovering = false;
+  
+        const lerp = (a, b, t) => a + (b - a) * t;
+  
+        function animate() {
+          rx = lerp(rx, tx, 0.12);
+          ry = lerp(ry, ty, 0.12);
+          s  = lerp(s,  ts, 0.12);
+  
+          card.style.transform = `translateZ(0) rotateX(${rx}deg) rotateY(${ry}deg) scale(${s})`;
+  
+          const stillMoving =
+            Math.abs(tx - rx) > 0.01 ||
+            Math.abs(ty - ry) > 0.01 ||
+            Math.abs(ts - s)  > 0.001;
+  
+          if (hovering || stillMoving) {
+            rafId = requestAnimationFrame(animate);
+          } else {
+            rafId = null;
+          }
+        }
+  
+        function ensureAnimating() {
+          if (rafId == null) rafId = requestAnimationFrame(animate);
+        }
+  
+        group.addEventListener("mousemove", (e) => {
+          const rect = group.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+  
+          // normalize to [-1, 1]
+          const nx = (x / rect.width) * 2 - 1;
+          const ny = (y / rect.height) * 2 - 1;
+  
+          // max 10deg tilt
+          tx = -ny * 10;
+          ty =  nx * 10;
+        }, { passive: true });
+  
+        group.addEventListener("mouseenter", () => {
+          hovering = true;
+          ts = 1.05;
+          ensureAnimating();
+        });
+  
+        group.addEventListener("mouseleave", () => {
+          hovering = false;
+          tx = 0; ty = 0; ts = 1;
+          ensureAnimating(); // glide back, then stop
+        });
+      });
+    })();
+
+  </script>
 </body>
 </html>
