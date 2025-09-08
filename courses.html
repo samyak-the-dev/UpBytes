@@ -7,6 +7,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css" />
+
+  <script>
+    // Immediately set theme based on localStorage or system preference
+    (function() {
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    })();
+  </script>
+  
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -50,278 +65,172 @@
       },
     };
   </script>
-  <script>
-    const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme === 'dark' || (savedTheme === null && userPrefersDark);
-    if (isDark) {
-      document.documentElement.classList.add('dark-theme');
-    }
-  </script>
+
 </head>
 <body class="bg-bg text-text dark:bg-dark-bg dark:text-white font-[Poppins] transition-colors duration-300">
 
-  <nav
-      class="flex items-center justify-between sticky top-0 z-50 py-4 px-7 bg-gray-300/90 dark:bg-nav-bg backdrop-blur-md shadow-md transition-colors duration-300"
-    >
-      <a href="index.html" class="flex items-center space-x-3">
-        <img
-          src="assets/graphics/logo.png"
-          alt="UpBytes Logo"
-          class="h-10 w-auto"
-        />
-        <span
-          class="text-2xl ml-0 font-extrabold text-accent tracking-wide hover:text-blue-500 transition-colors duration-300"
-          >UpBytes</span
-        >
-      </a>
-      <div class="flex items-center">
-        <a
-          href="courses.html"
-          class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
-          >Courses</a
-        >
-        <a
-          href="./quiz/quizzes.html"
-          class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
-          >Quizzes</a
-        >
-        <a
-          href="editor.html"
-          class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
-          >Code Editor</a
-        >
-        <button
-          onclick="toggleTheme()"
-          aria-label="Toggle Theme"
-          class="w-12 h-12 ml-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all duration-300 shadow-md"
-        >
-          <span id="theme-toggle-icon" class="material-icons text-2xl"
-            >dark_mode</span
-          >
-        </button>
-      </div>
-    </nav>
+ <!-- Navbar -->
+ <nav
+ class="flex items-center justify-between sticky top-0 z-50 py-4 px-7 bg-gray-300/90 dark:bg-nav-bg backdrop-blur-md shadow-md transition-colors duration-300"
+>
+ <a href="index.html" class="flex items-center space-x-3">
+   <img
+     src="assets/graphics/logo.png"
+     alt="UpBytes Logo"
+     class="h-10 w-auto"
+   />
+   <span
+     class="text-2xl ml-0 font-extrabold text-accent tracking-wide hover:text-blue-500 transition-colors duration-300"
+     >UpBytes</span
+   >
+ </a>
+ <div class="flex items-center">
+   <a
+     href="courses.html"
+     class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
+     >Courses</a
+   >
+   <a
+     href="./quiz/quizzes.html"
+     class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
+     >Quizzes</a
+   >
+   <a
+     href="editor.html"
+     class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
+     >Code Editor</a
+   >
+   <button
+     onclick="toggleTheme()"
+     aria-label="Toggle Theme"
+     class="w-12 h-12 ml-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all duration-300 shadow-md"
+   >
+     <span id="theme-toggle-icon" class="material-icons text-2xl"
+       >dark_mode</span
+     >
+   </button>
+ </div>
+</nav>
 
-  <main>
-    <h1 class>Our Courses</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="html-course/course-html.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            HTML Fundamentals
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Learn the basics of HTML5 to structure your webpages effectively and semantically.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
+    <main class="min-h-screen bg-[#f5f5f5] dark:bg-dark-bg py-16 px-6">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-12 text-[#003d4d] dark:text-white">
+        Our Courses
+      </h1>
+    
+      <div class="flex flex-col items-center space-y-8">
+    
+        <!-- HTML -->
+        <div class="group [perspective:1000px] w-full max-w-2xl">
+          <a href="html-course/course-html.html"
+            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
+            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">HTML Fundamentals</h3>
+            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+              Learn the basics of HTML5 to structure your webpages effectively and semantically.
+            </p>
+            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
+          </a>
+        </div>
+    
+        <!-- CSS -->
+        <div class="group [perspective:1000px] w-full max-w-2xl">
+          <a href="css-course/course-css.html"
+            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
+            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">CSS Styling</h3>
+            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+              Master CSS to beautifully style your websites with layouts, animations, and responsive design.
+            </p>
+            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
+          </a>
+        </div>
+    
+        <!-- JavaScript -->
+        <div class="group [perspective:1000px] w-full max-w-2xl">
+          <a href="js-course/course-js.html"
+            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
+            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">JavaScript Basics</h3>
+            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+              Understand JavaScript fundamentals to add interactivity and dynamic content to your sites.
+            </p>
+            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
+          </a>
+        </div>
+    
+        <!-- React -->
+        <div class="group [perspective:1000px] w-full max-w-2xl">
+          <a href="react-course/course-react.html"
+            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
+            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">React Introduction</h3>
+            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+              Start building modern single-page apps using React and component-driven architecture.
+            </p>
+            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
+          </a>
+        </div>
+    
+        <!-- Node.js & Express -->
+        <div class="group [perspective:1000px] w-full max-w-2xl">
+          <a href="nodexpress-course/course-node.html"
+            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
+            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">Node.js & Express</h3>
+            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+              Learn backend development with Node.js and Express to create powerful web servers.
+            </p>
+            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
+          </a>
+        </div>
+    
+        <!-- MongoDB -->
+        <div class="group [perspective:1000px] w-full max-w-2xl">
+          <a href="mongo-course/course-mongodb.html"
+            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
+            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">MongoDB</h3>
+            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+              Explore MongoDB’s flexible document model and learn how to build and query databases efficiently.
+            </p>
+            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
+          </a>
+        </div>
+    
+        <!-- MySQL -->
+        <div class="group [perspective:1000px] w-full max-w-2xl">
+          <a href="mysql-course/course-mysql.html"
+            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
+            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">MySQL</h3>
+            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+              Learn relational database management and SQL queries with MySQL to manage structured data.
+            </p>
+            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
+          </a>
+        </div>
+    
+        <!-- Python -->
+        <div class="group [perspective:1000px] w-full max-w-2xl">
+          <a href="python-course/course-python.html"
+            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
+            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">Python Programming</h3>
+            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+              Learn Python from the ground up — syntax, data structures, and practical coding projects.
+            </p>
+            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
+          </a>
+        </div>
+    
+        <!-- Git -->
+        <div class="group [perspective:1000px] w-full max-w-2xl">
+          <a href="git-course/course-git.html"
+            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
+            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">Git & Version Control</h3>
+            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
+              Master Git and GitHub to manage your code, collaborate, and keep track of every change.
+            </p>
+            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
+          </a>
+        </div>
+    
       </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="css-course/course-css.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            CSS Styling
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Master CSS to beautifully style your websites with layouts, animations, and responsive design.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="js-course/course-js.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            JavaScript Basics
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Understand JavaScript fundamentals to add interactivity and dynamic content to your sites.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="react-course/course-react.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            React Introduction
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Start building modern single-page apps using React and component-driven architecture.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="nodexpress-course/course-node.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            Node.js & Express
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Learn backend development with Node.js and Express to create powerful web servers.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="mongo-course/course-mongodb.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            MongoDB
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Explore MongoDB’s flexible document model and learn how to build and query databases efficiently.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-
-      <div class="group [perspective:1000px]">
-        <a
-          href="html-course/course-html.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            HTML Fundamentals
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Learn the basics of HTML5 to structure your webpages effectively and semantically.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="css-course/course-css.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            CSS Styling
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Master CSS to beautifully style your websites with layouts, animations, and responsive design.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="js-course/course-js.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            JavaScript Basics
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Understand JavaScript fundamentals to add interactivity and dynamic content to your sites.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="react-course/course-react.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            React Introduction
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Start building modern single-page apps using React and component-driven architecture.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="nodexpress-course/course-node.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            Node.js & Express
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Learn backend development with Node.js and Express to create powerful web servers.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-  
-      <!-- Card -->
-      <div class="group [perspective:1000px]">
-        <a
-          href="mongo-course/course-mongodb.html"
-          class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform"
-        >
-          <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">
-            MongoDB
-          </h3>
-          <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-            Explore MongoDB’s flexible document model and learn how to build and query databases efficiently.
-          </p>
-          <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">
-            View Course
-          </span>
-        </a>
-      </div>
-    </div>
-  </main>
+    </main>
+    
+    
 
   <!-- Footer -->
   <footer class="bg-[#003d4d] text-[#a9cfd8] px-8 py-12">
