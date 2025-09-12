@@ -1,0 +1,23 @@
+{
+  "name": "upbytes",
+  "version": "1.0.0",
+  "description": "UpBytes is a ................................................in 2025.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samyak-the-dev/UpBytes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samyak-the-dev/UpBytes/issues"
+  },
+  "homepage": "https://github.com/samyak-the-dev/UpBytes#readme",
+  "dependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
