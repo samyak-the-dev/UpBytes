@@ -1,22 +1,24 @@
-// Toggle dark/light theme
+// Theme toggle
 function toggleTheme() {
-  const html = document.documentElement;
-  const isDark = html.classList.toggle("dark");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-  updateThemeIcon(isDark);
+  document.documentElement.classList.toggle("dark");
+  const icon = document.getElementById("theme-toggle-icon");
+
+  // Trigger spin animation every toggle
+  icon.classList.remove("animate-spin-once");
+  void icon.offsetWidth; // force reflow
+  icon.classList.add("animate-spin-once");
+
+  if (document.documentElement.classList.contains("dark")) {
+    icon.textContent = "light_mode";
+    localStorage.setItem("theme", "dark");
+  } else {
+    icon.textContent = "dark_mode";
+    localStorage.setItem("theme", "light");
+  }
 }
-window.toggleTheme = toggleTheme;
 
-// Update theme icon w/ animation
-function updateThemeIcon(isDark) {
-  const toggleBtn = document.getElementById("theme-toggle-icon");
-  if (!toggleBtn) return;
 
-  toggleBtn.classList.add("animate-spin-slow");
-  toggleBtn.textContent = isDark ? "light_mode" : "dark_mode";
 
-  setTimeout(() => toggleBtn.classList.remove("animate-spin-slow"), 600);
-}
 
 //On load
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,4 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("bg-gray-200/80", "dark:bg-gray-900/70", "shadow-md");
+        } else {
+          navbar.classList.remove("bg-gray-200/80", "dark:bg-gray-900/70", "shadow-md");
+        }
+      });

@@ -6,8 +6,7 @@
   <title>UpBytes - Courses</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/index.css" />
-
+  <link href="dist/output.css" rel="stylesheet">
   <script>
     // Immediately set theme based on localStorage or system preference
     (function() {
@@ -21,96 +20,64 @@
       }
     })();
   </script>
-  
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Dark mode config -->
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            bg: "#f9fafb",
-            text: "#003d4d",
-            accent: "#00b8d9",
-            themebtn: "#e6b800",
-            "dark-bg": "#07293d",
-            "card-bg": "#ffffff",
-            "border-color": "#e1e8ee",
-            "btn-bg": "#00b8d9",
-            "btn-hover-bg": "#008891",
-            "btn-text": "#ffffff",
-            "nav-bg": "#142832",
-          },
-          
-          keyframes: {
-            rgb: {
-              '0%': { backgroundPosition: '0% 50%' },
-              '50%': { backgroundPosition: '100% 50%' },
-              '100%': { backgroundPosition: '0% 50%' },
-            },
-            slide: {
-              '0%': { transform: 'translateX(-100%)' },
-              '100%': { transform: 'translateX(300%)' },
-            },
-          },
-            
-          animation: {
-            "spin-slow": "spin 0.5s linear",
-            rgb: "rgb 6s linear infinite",
-          },
-        },
-      },
-    };
-  </script>
 
 </head>
 <body class="bg-bg text-text dark:bg-dark-bg dark:text-white font-[Poppins] transition-colors duration-300">
 
- <!-- Navbar -->
- <nav
- class="flex items-center justify-between sticky top-0 z-50 py-4 px-7 bg-gray-300/90 dark:bg-nav-bg backdrop-blur-md shadow-md transition-colors duration-300"
->
- <a href="index.html" class="flex items-center space-x-3">
-   <img
-     src="assets/graphics/logo.png"
-     alt="UpBytes Logo"
-     class="h-10 w-auto"
-   />
-   <span
-     class="text-2xl ml-0 font-extrabold text-accent tracking-wide hover:text-blue-500 transition-colors duration-300"
-     >UpBytes</span
-   >
- </a>
- <div class="flex items-center">
-   <a
-     href="courses.html"
-     class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
-     >Courses</a
-   >
-   <a
-     href="./quiz/quizzes.html"
-     class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
-     >Quizzes</a
-   >
-   <a
-     href="editor.html"
-     class="ml-7 py-1 font-black transition duration-300 hover:text-[#c94d4d] hover:-translate-y-1 hover:opacity-90"
-     >Code Editor</a
-   >
-   <button
-     onclick="toggleTheme()"
-     aria-label="Toggle Theme"
-     class="w-12 h-12 ml-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-white hover:bg-accent hover:text-white dark:hover:bg-accent transition-all duration-300 shadow-md"
-   >
-     <span id="theme-toggle-icon" class="material-icons text-2xl"
-       >dark_mode</span
-     >
-   </button>
- </div>
-</nav>
+<!-- Top Navbar (Desktop + Tablets) -->
+<header>
+  <nav id="navbar"
+     class="fixed top-4 left-1/2 -translate-x-1/2 z-50
+            flex items-center justify-between
+            w-[90%] max-w-screen-xl px-5 py-4
+            bg-white/20 dark:bg-gray-900/20 backdrop-blur-lg
+            rounded-xl border-b border-white/20 dark:border-gray-700/30
+            shadow-lg transition-all duration-500 hidden md:flex">
+
+    
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-3 shrink-0 pr-7">
+      <img src="assets/graphics/logo.png"
+           alt="UpBytes Logo"
+           class="h-10 w-auto drop-shadow-md" />
+      <!-- hide text on tablet & down -->
+      <span class="hidden md:inline text-2xl font-extrabold tracking-tight
+             bg-clip-text text-transparent
+             bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-500">
+    UpBytes
+    </span>
+
+
+    </a>
+
+    <!-- Links -->
+    <div class="flex items-center flex-wrap gap-6 shrink-0 ml-auto">
+      <a href="courses.html"
+         class="font-semibold text-gray-800 dark:text-gray-200
+                hover:text-indigo-500 dark:hover:text-pink-400
+                transition-colors duration-300">Courses</a>
+      <a href="./quiz/quizzes.html"
+         class="font-semibold text-gray-800 dark:text-gray-200
+                hover:text-indigo-500 dark:hover:text-pink-400
+                transition-colors duration-300">Quizzes</a>
+      <a href="editor.html"
+         class="font-semibold text-gray-800 dark:text-gray-200
+                hover:text-indigo-500 dark:hover:text-pink-400
+                transition-colors duration-300">Code Editor</a>
+
+      <!-- Theme Toggle -->
+      <button
+        onclick="toggleTheme()"
+        class="ml-4 flex items-center justify-center w-11 h-11
+               rounded-full bg-gradient-to-r
+               from-indigo-400/40 to-pink-400/40
+               dark:from-indigo-600/40 dark:to-pink-600/40
+               hover:scale-110 transition-transform shadow-lg">
+        <span id="theme-toggle-icon" class="material-icons text-2xl">dark_mode</span>
+      </button>
+    </div>
+  </nav>
+</header>
 
     <main class="min-h-screen bg-[#f5f5f5] dark:bg-dark-bg py-16 px-6">
       <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-12 text-[#003d4d] dark:text-white">
@@ -268,6 +235,31 @@
     </div>
   </footer>
 
+  <!-- Bottom Navbar (Mobile Only) -->
+<div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
+  <nav
+    id="mobileNav"
+    class="relative w-[90vw] max-w-md mx-auto
+           flex justify-between items-center px-6 py-3
+           rounded-full backdrop-blur-xl shadow-2xl
+           bg-white/30 dark:bg-gray-900"
+  >
+    <!-- each anchor needs .mobile-link -->
+    <a href="index.html"     class="mobile-link"><span class="material-icons">home</span></a>
+    <a href="courses.html"   class="mobile-link"><span class="material-icons">menu_book</span></a>
+
+    <!-- center “code” button -->
+    <a href="editor.html"
+       class="mobile-link -mt-8 flex items-center justify-center
+              w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-xl">
+       <span class="material-icons text-white text-3xl">code</span>
+    </a>
+
+    <a href="quiz/quizzes.html" class="mobile-link"><span class="material-icons">quiz</span></a>
+    <a href="profile.html"      class="mobile-link"><span class="material-icons">person</span></a>
+  </nav>
+</div>
+
   <div
   id="signin-modal"
   class="hidden fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center z-[9999] transition-all"
@@ -279,6 +271,7 @@
     <!-- Status bar -->
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-themebtn to-pink-500 animate-slide"></div>
 
+    
     <!-- Close button -->
 <button
 id="close-modal"
