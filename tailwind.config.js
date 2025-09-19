@@ -3,23 +3,9 @@
 module.exports = {
   darkMode: "class",
   content: [
-    "./index.html",
-    "./editor.html",
-    "./signin.html",
-    "./courses.html",
-    "./errors/*.html",
-    "./css-course/*.html",
-    "./html-course/*.html",
-    "./mongo-course/*.html",
-    "./nodexpress-course/*.html",
-    "./js-course/*.html",
-    "./python-course/*.html",
-    "./react-course/*.html",
-    "./git-course/*.html",
-    "./mysql-course/*.html",
-    "./quiz/*.html",
-    "./assets/js/*.js"
+    "./**/*.{html,js}"
   ],
+    
   theme: {
     extend: {
       colors: {
