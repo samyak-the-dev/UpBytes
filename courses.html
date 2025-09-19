@@ -1,382 +1,975 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UpBytes - Courses</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="dist/output.css" rel="stylesheet">
-  <script>
-    // Immediately set theme based on localStorage or system preference
-    (function() {
-      const savedTheme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
+  <!-- Primary Meta Tags -->
+  <title>Programming Courses - UpBytes | Learn HTML, CSS, JavaScript, React & More</title>
+  <meta name="title" content="Programming Courses - UpBytes | Learn HTML, CSS, JavaScript, React & More" />
+  <meta name="description" content="Explore our comprehensive programming courses. Master web development with HTML, CSS, JavaScript, React, Node.js, Python, and more. Interactive lessons with hands-on projects and certifications." />
+  <meta name="keywords" content="programming courses, web development courses, HTML CSS JavaScript, React Node.js courses, Python programming, MongoDB MySQL courses, Git version control, coding bootcamp" />
+  <meta name="author" content="UpBytes" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://upbytes.com/courses" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://upbytes.com/courses" />
+  <meta property="og:title" content="Programming Courses - UpBytes" />
+  <meta property="og:description" content="Master programming with our interactive courses. Learn HTML, CSS, JavaScript, React, Node.js, Python and more with hands-on projects." />
+  <meta property="og:image" content="https://upbytes.com/assets/graphics/courses-og-image.jpg" />
+  <meta property="og:site_name" content="UpBytes" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://upbytes.com/courses" />
+  <meta property="twitter:title" content="Programming Courses - UpBytes" />
+  <meta property="twitter:description" content="Master programming with interactive courses and hands-on projects." />
+  <meta property="twitter:image" content="https://upbytes.com/assets/graphics/courses-twitter-image.jpg" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Programming Courses",
+    "description": "Comprehensive programming courses for web development",
+    "url": "https://upbytes.com/courses",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "Course",
+          "position": 1,
+          "name": "HTML Fundamentals",
+          "description": "Learn HTML5 structure and semantic markup",
+          "provider": {
+            "@type": "Organization",
+            "name": "UpBytes"
+          }
+        },
+        {
+          "@type": "Course",
+          "position": 2,
+          "name": "CSS Styling",
+          "description": "Master CSS layouts, animations, and responsive design",
+          "provider": {
+            "@type": "Organization",
+            "name": "UpBytes"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- Favicon and Icons -->
+  <link rel="shortcut icon" href="assets/graphics/logo.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/graphics/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/graphics/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/graphics/favicon-16x16.png" />
+  
+  <!-- Fonts - Optimized Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="dist/output.css" as="style" />
+  <link rel="preload" href="assets/js/script.js" as="script" />
+  
+  <link href="dist/output.css" rel="stylesheet" />
+  
+  <!-- Theme Script - Prevent Flash -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
       }
     })();
   </script>
-
+  
+  <style>
+    /* Custom CSS for enhanced animations and effects */
+    @font-face {
+      font-family: 'Inter';
+      font-display: swap;
+    }
+    
+    .animate-gradient {
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .animate-pulse-slow {
+      animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .glass-effect {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .course-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .course-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .difficulty-badge {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .difficulty-badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .course-card:hover .difficulty-badge::before {
+      left: 100%;
+    }
+    
+    /* Improved accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-gradient,
+      .animate-float,
+      .animate-pulse-slow {
+        animation: none;
+      }
+    }
+    
+    /* Focus styles */
+    .focus-visible {
+      outline: 2px solid #667eea;
+      outline-offset: 2px;
+    }
+    
+    /* Course category filters */
+    .filter-tab {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .filter-tab::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      transition: width 0.3s ease;
+    }
+    
+    .filter-tab.active::after,
+    .filter-tab:hover::after {
+      width: 100%;
+    }
+    
+    /* Course card enhancements */
+    .course-progress {
+      height: 4px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      border-radius: 2px;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .course-card:hover .course-progress {
+      transform: scaleX(1);
+    }
+  </style>
 </head>
-<body class="bg-bg text-text dark:bg-dark-bg dark:text-white font-[Poppins] transition-colors duration-300">
 
-<!-- Top Navbar (Desktop + Tablets) -->
-<header>
-  <nav id="navbar"
-     class="fixed top-4 left-1/2 -translate-x-1/2 z-50
-            flex items-center justify-between
-            w-[90%] max-w-screen-xl px-5 py-4
-            bg-white/20 dark:bg-gray-900/20 backdrop-blur-lg
-            rounded-xl border-b border-white/20 dark:border-gray-700/30
-            shadow-lg transition-all duration-500 hidden md:flex">
+<body class="h-full leading-relaxed bg-gradient-to-br from-slate-50 to-blue-50 text-slate-900 dark:from-slate-900 dark:to-slate-800 dark:text-white font-[Inter] transition-colors duration-300 antialiased">
+  
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50">
+    Skip to main content
+  </a>
 
-    
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center space-x-3 shrink-0 pr-7">
-      <img src="assets/graphics/logo.png"
-           alt="UpBytes Logo"
-           class="h-10 w-auto drop-shadow-md" />
-      <!-- hide text on tablet & down -->
-      <span class="hidden md:inline text-2xl font-extrabold tracking-tight
-             bg-clip-text text-transparent
-             bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-500">
-    UpBytes
-    </span>
+  <!-- Enhanced Header -->
+  <header>
+    <nav id="navbar" 
+         role="navigation" 
+         aria-label="Main navigation"
+         class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between w-[92%] max-w-screen-xl px-6 py-4 glass-effect bg-white/80 dark:bg-slate-900/80 rounded-2xl shadow-xl transition-all duration-500 hidden md:flex">
+      
+      <!-- Logo -->
+      <a href="index.html" 
+         class="flex items-center space-x-3 shrink-0 pr-8 group"
+         aria-label="UpBytes - Home">
+        <div class="relative">
+          <img src="assets/graphics/logo.png" 
+               alt="UpBytes Logo" 
+               class="h-12 w-auto drop-shadow-lg group-hover:scale-110 transition-transform duration-300" 
+               width="48" 
+               height="48" />
+          <div class="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-300"></div>
+        </div>
+        <span class="hidden lg:inline text-2xl font-bold tracking-tight text-gradient">
+          UpBytes
+        </span>
+      </a>
 
+      <!-- Navigation Links -->
+      <div class="flex items-center flex-wrap gap-8 shrink-0 ml-auto">
+        <a href="courses.html" 
+           class="font-semibold text-blue-600 dark:text-blue-400 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-blue-600 after:transition-all after:duration-300"
+           aria-label="Browse our courses" aria-current="page">
+          Courses
+        </a>
+        <a href="./quiz/quizzes.html" 
+           class="font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all after:duration-300"
+           aria-label="Take coding quizzes">
+          Quizzes
+        </a>
+        <a href="editor.html" 
+           class="font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all after:duration-300"
+           aria-label="Try our code editor">
+          Code Editor
+        </a>
 
-    </a>
+        <!-- Enhanced Theme Toggle -->
+        <button onclick="toggleTheme()" 
+                class="ml-6 flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/30 hover:to-purple-500/30 hover:scale-110 transition-all duration-300 shadow-lg"
+                aria-label="Toggle dark/light theme">
+          <span id="theme-toggle-icon" class="material-icons text-2xl transition-transform duration-300">dark_mode</span>
+        </button>
 
-    <!-- Links -->
-    <div class="flex items-center flex-wrap gap-6 shrink-0 ml-auto">
-      <a href="courses.html"
-         class="font-semibold text-gray-800 dark:text-gray-200
-                hover:text-indigo-500 dark:hover:text-pink-400
-                transition-colors duration-300">Courses</a>
-      <a href="./quiz/quizzes.html"
-         class="font-semibold text-gray-800 dark:text-gray-200
-                hover:text-indigo-500 dark:hover:text-pink-400
-                transition-colors duration-300">Quizzes</a>
-      <a href="editor.html"
-         class="font-semibold text-gray-800 dark:text-gray-200
-                hover:text-indigo-500 dark:hover:text-pink-400
-                transition-colors duration-300">Code Editor</a>
-
-      <!-- Theme Toggle -->
-      <button
-        onclick="toggleTheme()"
-        class="ml-4 flex items-center justify-center w-11 h-11
-               rounded-full bg-gradient-to-r
-               from-indigo-400/40 to-pink-400/40
-               dark:from-indigo-600/40 dark:to-pink-600/40
-               hover:scale-110 transition-transform shadow-lg">
-        <span id="theme-toggle-icon" class="material-icons text-2xl">dark_mode</span>
-      </button>
-    </div>
-  </nav>
-</header>
-
-    <main class="min-h-screen bg-[#f5f5f5] dark:bg-dark-bg py-16 px-6">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-center mb-12 text-[#003d4d] dark:text-white">
-        Our Courses
-      </h1>
-    
-      <div class="flex flex-col items-center space-y-8">
-    
-        <!-- HTML -->
-        <div class="group [perspective:1000px] w-full max-w-2xl">
-          <a href="html-course/course-html.html"
-            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
-            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">HTML Fundamentals</h3>
-            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-              Learn the basics of HTML5 to structure your webpages effectively and semantically.
-            </p>
-            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
-          </a>
-        </div>
-    
-        <!-- CSS -->
-        <div class="group [perspective:1000px] w-full max-w-2xl">
-          <a href="css-course/course-css.html"
-            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
-            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">CSS Styling</h3>
-            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-              Master CSS to beautifully style your websites with layouts, animations, and responsive design.
-            </p>
-            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
-          </a>
-        </div>
-    
-        <!-- JavaScript -->
-        <div class="group [perspective:1000px] w-full max-w-2xl">
-          <a href="js-course/course-js.html"
-            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
-            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">JavaScript Basics</h3>
-            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-              Understand JavaScript fundamentals to add interactivity and dynamic content to your sites.
-            </p>
-            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
-          </a>
-        </div>
-    
-        <!-- React -->
-        <div class="group [perspective:1000px] w-full max-w-2xl">
-          <a href="react-course/course-react.html"
-            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
-            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">React Introduction</h3>
-            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-              Start building modern single-page apps using React and component-driven architecture.
-            </p>
-            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
-          </a>
-        </div>
-    
-        <!-- Node.js & Express -->
-        <div class="group [perspective:1000px] w-full max-w-2xl">
-          <a href="nodexpress-course/course-node.html"
-            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
-            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">Node.js & Express</h3>
-            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-              Learn backend development with Node.js and Express to create powerful web servers.
-            </p>
-            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
-          </a>
-        </div>
-    
-        <!-- MongoDB -->
-        <div class="group [perspective:1000px] w-full max-w-2xl">
-          <a href="mongo-course/course-mongodb.html"
-            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
-            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">MongoDB</h3>
-            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-              Explore MongoDB’s flexible document model and learn how to build and query databases efficiently.
-            </p>
-            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
-          </a>
-        </div>
-    
-        <!-- MySQL -->
-        <div class="group [perspective:1000px] w-full max-w-2xl">
-          <a href="mysql-course/course-mysql.html"
-            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
-            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">MySQL</h3>
-            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-              Learn relational database management and SQL queries with MySQL to manage structured data.
-            </p>
-            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
-          </a>
-        </div>
-    
-        <!-- Python -->
-        <div class="group [perspective:1000px] w-full max-w-2xl">
-          <a href="python-course/course-python.html"
-            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
-            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">Python Programming</h3>
-            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-              Learn Python from the ground up — syntax, data structures, and practical coding projects.
-            </p>
-            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
-          </a>
-        </div>
-    
-        <!-- Git -->
-        <div class="group [perspective:1000px] w-full max-w-2xl">
-          <a href="git-course/course-git.html"
-            class="course-card relative block bg-white dark:bg-[#0d3b52] rounded-2xl p-6 shadow-lg will-change-transform">
-            <h3 class="text-xl font-bold text-[#005f73] dark:text-white mb-2">Git & Version Control</h3>
-            <p class="text-[#005f73] dark:text-[#dbe9f0] mb-4">
-              Master Git and GitHub to manage your code, collaborate, and keep track of every change.
-            </p>
-            <span class="inline-block bg-accent text-white px-4 py-2 rounded-full font-semibold">View Course</span>
-          </a>
-        </div>
-    
+        <!-- CTA Button -->
+        <a href="#featured-courses" 
+           class="ml-4 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl hover:scale-105 transition-all duration-300 focus-visible"
+           aria-label="Start learning with UpBytes">
+          Start Learning
+        </a>
       </div>
-    </main>
-    
-    
+    </nav>
+  </header>
 
-  <!-- Footer -->
-  <footer class="bg-[#003d4d] text-[#a9cfd8] px-8 py-12">
-    <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-8">
-      <div class="flex-1 min-w-[220px]">
-        <h4 class="text-white font-bold mb-4">UpBytes</h4>
-        <p>
-          Empowering learners to code and earn certificates with interactive
-          content and real projects.
+  <main id="main-content" class="min-h-screen">
+    <!-- Enhanced Hero Section -->
+    <section class="relative pt-32 pb-20 px-6 overflow-hidden" 
+             style="background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);">
+
+      <!-- Enhanced Background Effects -->
+      <div class="absolute inset-0 -z-10 overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute w-96 h-96 rounded-full bg-white/10 blur-3xl animate-float top-20 left-20"></div>
+        <div class="absolute w-80 h-80 rounded-full bg-blue-400/20 blur-3xl animate-pulse-slow bottom-32 right-16" style="animation-delay: 1s;"></div>
+        <div class="absolute w-72 h-72 rounded-full bg-pink-400/20 blur-3xl animate-float top-1/2 right-1/3" style="animation-delay: 2s;"></div>
+        
+        <!-- Grid Pattern -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:50px_50px]"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-5xl mx-auto text-center text-white">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-effect bg-white/10 border border-white/20 text-sm font-medium mb-8 hover:bg-white/20 transition-all duration-300 group">
+          <span class="material-icons text-sm">school</span>
+          <span>🎓 Master programming with hands-on courses</span>
+        </div>
+
+        <!-- Headlines -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-pink-100 drop-shadow-2xl">
+          Master Programming<br />
+          <span class="text-yellow-300">One Course at a Time</span>
+        </h1>
+
+        <p class="text-lg sm:text-xl lg:text-2xl max-w-4xl mx-auto mb-12 text-blue-100/90 font-medium leading-relaxed">
+          From beginner to expert, our interactive courses cover everything you need to become a professional developer.
+          Choose your path and start building your future today.
         </p>
+
+        <!-- Course Stats -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-yellow-300 mb-2">9</div>
+            <div class="text-blue-100/80">Comprehensive Courses</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-yellow-300 mb-2">200+</div>
+            <div class="text-blue-100/80">Interactive Lessons</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-yellow-300 mb-2">50+</div>
+            <div class="text-blue-100/80">Hands-on Projects</div>
+          </div>
+        </div>
       </div>
-      <div class="flex-1 min-w-[220px]">
-        <h4 class="text-white font-bold mb-4">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
-          <li>
-            <a href="courses.html" class="hover:text-yellow-400">Courses</a>
-          </li>
-          <li>
-            <a href="./quiz/quizzes.html" class="hover:text-yellow-400">Quizzes</a>
-          </li>
-          <li>
-            <a href="editor.html" class="hover:text-yellow-400">Code Editor</a>
-          </li>
-        </ul>
+    </section>
+
+    <!-- Course Filters -->
+    <section class="py-12 px-6 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+          <button class="filter-tab active px-6 py-3 rounded-full bg-blue-600 text-white font-semibold transition-all duration-300" data-filter="all">
+            All Courses
+          </button>
+          <button class="filter-tab px-6 py-3 rounded-full bg-white/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="frontend">
+            Frontend
+          </button>
+          <button class="filter-tab px-6 py-3 rounded-full bg-white/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="backend">
+            Backend
+          </button>
+          <button class="filter-tab px-6 py-3 rounded-full bg-white/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="database">
+            Database
+          </button>
+          <button class="filter-tab px-6 py-3 rounded-full bg-white/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="tools">
+            Tools
+          </button>
+        </div>
       </div>
-      <div class="flex-1 min-w-[220px]">
-        <h4 class="text-white font-bold mb-4">Contact</h4>
-        <p>Email: info@upbytes.com</p>
-        <p>Phone: 011 5541 2890</p>
+    </section>
+
+    <!-- Enhanced Courses Grid -->
+    <section id="featured-courses" class="py-20 px-6" aria-label="Programming courses">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-grid">
+          
+          <!-- HTML Course -->
+          <div class="group [perspective:1000px] course-item" data-category="frontend">
+            <a href="html-course/course-html.html"
+               class="course-card block glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl will-change-transform border border-slate-200/50 dark:border-slate-700/50"
+               aria-label="HTML Fundamentals Course">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span class="material-icons text-2xl text-white">code</span>
+                  </div>
+                  <span class="difficulty-badge px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm font-semibold rounded-full">
+                    Beginner
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                  HTML Fundamentals
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Learn the foundation of web development with HTML5. Master semantic markup, accessibility, and modern web standards.
+                </p>
+                <div class="course-progress mb-4"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full font-semibold group-hover:shadow-lg transition-all duration-300">
+                  <span class="material-icons text-sm">play_arrow</span>
+                  Start Course
+                </span>
+                <div class="text-right">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">12 lessons</div>
+                  <div class="text-xs text-slate-400 dark:text-slate-500">~4 hours</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- CSS Course -->
+          <div class="group [perspective:1000px] course-item" data-category="frontend">
+            <a href="css-course/course-css.html"
+               class="course-card block glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl will-change-transform border border-slate-200/50 dark:border-slate-700/50"
+               aria-label="CSS Styling Course">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span class="material-icons text-2xl text-white">palette</span>
+                  </div>
+                  <span class="difficulty-badge px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm font-semibold rounded-full">
+                    Beginner
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                  CSS Styling
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Transform your websites with beautiful styling. Master layouts, animations, responsiveness, and modern CSS techniques.
+                </p>
+                <div class="course-progress mb-4"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-full font-semibold group-hover:shadow-lg transition-all duration-300">
+                  <span class="material-icons text-sm">play_arrow</span>
+                  Start Course
+                </span>
+                <div class="text-right">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">15 lessons</div>
+                  <div class="text-xs text-slate-400 dark:text-slate-500">~6 hours</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- JavaScript Course -->
+          <div class="group [perspective:1000px] course-item" data-category="frontend">
+            <a href="js-course/course-js.html"
+               class="course-card block glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl will-change-transform border border-slate-200/50 dark:border-slate-700/50"
+               aria-label="JavaScript Basics Course">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span class="material-icons text-2xl text-white">flash_on</span>
+                  </div>
+                  <span class="difficulty-badge px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 text-sm font-semibold rounded-full">
+                    Intermediate
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                  JavaScript Basics
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Bring your websites to life with JavaScript. Learn programming fundamentals, DOM manipulation, and modern ES6+ features.
+                </p>
+                <div class="course-progress mb-4"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-amber-500 text-white px-4 py-2 rounded-full font-semibold group-hover:shadow-lg transition-all duration-300">
+                  <span class="material-icons text-sm">play_arrow</span>
+                  Start Course
+                </span>
+                <div class="text-right">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">18 lessons</div>
+                  <div class="text-xs text-slate-400 dark:text-slate-500">~8 hours</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- React Course -->
+          <div class="group [perspective:1000px] course-item" data-category="frontend">
+            <a href="react-course/course-react.html"
+               class="course-card block glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl will-change-transform border border-slate-200/50 dark:border-slate-700/50"
+               aria-label="React Introduction Course">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span class="material-icons text-2xl text-white">widgets</span>
+                  </div>
+                  <span class="difficulty-badge px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-sm font-semibold rounded-full">
+                    Advanced
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                  React Introduction
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Build powerful single-page applications with React. Master components, state management, and modern development workflows.
+                </p>
+                <div class="course-progress mb-4"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-2 rounded-full font-semibold group-hover:shadow-lg transition-all duration-300">
+                  <span class="material-icons text-sm">play_arrow</span>
+                  Start Course
+                </span>
+                <div class="text-right">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">22 lessons</div>
+                  <div class="text-xs text-slate-400 dark:text-slate-500">~12 hours</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Node.js Course -->
+          <div class="group [perspective:1000px] course-item" data-category="backend">
+            <a href="nodexpress-course/course-node.html"
+               class="course-card block glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl will-change-transform border border-slate-200/50 dark:border-slate-700/50"
+               aria-label="Node.js and Express Course">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span class="material-icons text-2xl text-white">dns</span>
+                  </div>
+                  <span class="difficulty-badge px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 text-sm font-semibold rounded-full">
+                    Intermediate
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                  Node.js & Express
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Master backend development with Node.js and Express. Build APIs, handle databases, and create full-stack applications.
+                </p>
+                <div class="course-progress mb-4"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full font-semibold group-hover:shadow-lg transition-all duration-300">
+                  <span class="material-icons text-sm">play_arrow</span>
+                  Start Course
+                </span>
+                <div class="text-right">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">20 lessons</div>
+                  <div class="text-xs text-slate-400 dark:text-slate-500">~10 hours</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- MongoDB Course -->
+          <div class="group [perspective:1000px] course-item" data-category="database">
+            <a href="mongo-course/course-mongodb.html"
+               class="course-card block glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl will-change-transform border border-slate-200/50 dark:border-slate-700/50"
+               aria-label="MongoDB Database Course">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span class="material-icons text-2xl text-white">storage</span>
+                  </div>
+                  <span class="difficulty-badge px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 text-sm font-semibold rounded-full">
+                    Intermediate
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                  MongoDB
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Learn NoSQL database management with MongoDB. Master document modeling, queries, and integration with Node.js applications.
+                </p>
+                <div class="course-progress mb-4"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-2 rounded-full font-semibold group-hover:shadow-lg transition-all duration-300">
+                  <span class="material-icons text-sm">play_arrow</span>
+                  Start Course
+                </span>
+                <div class="text-right">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">16 lessons</div>
+                  <div class="text-xs text-slate-400 dark:text-slate-500">~7 hours</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- MySQL Course -->
+          <div class="group [perspective:1000px] course-item" data-category="database">
+            <a href="mysql-course/course-mysql.html"
+               class="course-card block glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl will-change-transform border border-slate-200/50 dark:border-slate-700/50"
+               aria-label="MySQL Database Course">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-blue-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span class="material-icons text-2xl text-white">table_chart</span>
+                  </div>
+                  <span class="difficulty-badge px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 text-sm font-semibold rounded-full">
+                    Intermediate
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                  MySQL
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Learn relational database management and SQL queries with MySQL to manage structured data efficiently.
+                </p>
+                <div class="course-progress mb-4"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-blue-500 text-white px-4 py-2 rounded-full font-semibold group-hover:shadow-lg transition-all duration-300">
+                  <span class="material-icons text-sm">play_arrow</span>
+                  Start Course
+                </span>
+                <div class="text-right">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">14 lessons</div>
+                  <div class="text-xs text-slate-400 dark:text-slate-500">~6 hours</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Python Course -->
+          <div class="group [perspective:1000px] course-item" data-category="backend">
+            <a href="python-course/course-python.html"
+               class="course-card block glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl will-change-transform border border-slate-200/50 dark:border-slate-700/50"
+               aria-label="Python Programming Course">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span class="material-icons text-2xl text-white">psychology</span>
+                  </div>
+                  <span class="difficulty-badge px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm font-semibold rounded-full">
+                    Beginner
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                  Python Programming
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Learn Python from the ground up — syntax, data structures, and practical coding projects for real-world applications.
+                </p>
+                <div class="course-progress mb-4"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-2 rounded-full font-semibold group-hover:shadow-lg transition-all duration-300">
+                  <span class="material-icons text-sm">play_arrow</span>
+                  Start Course
+                </span>
+                <div class="text-right">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">25 lessons</div>
+                  <div class="text-xs text-slate-400 dark:text-slate-500">~15 hours</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Git Course -->
+          <div class="group [perspective:1000px] course-item" data-category="tools">
+            <a href="git-course/course-git.html"
+               class="course-card block glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 shadow-xl hover:shadow-2xl will-change-transform border border-slate-200/50 dark:border-slate-700/50"
+               aria-label="Git Version Control Course">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <span class="material-icons text-2xl text-white">account_tree</span>
+                  </div>
+                  <span class="difficulty-badge px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm font-semibold rounded-full">
+                    Beginner
+                  </span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-3">
+                  Git & Version Control
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Master Git and GitHub to manage your code, collaborate with teams, and keep track of every change in your projects.
+                </p>
+                <div class="course-progress mb-4"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-2 bg-gradient-to-r from-gray-600 to-gray-800 text-white px-4 py-2 rounded-full font-semibold group-hover:shadow-lg transition-all duration-300">
+                  <span class="material-icons text-sm">play_arrow</span>
+                  Start Course
+                </span>
+                <div class="text-right">
+                  <div class="text-sm text-slate-500 dark:text-slate-400">10 lessons</div>
+                  <div class="text-xs text-slate-400 dark:text-slate-500">~4 hours</div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Learning Path Suggestion -->
+        <div class="mt-20 text-center">
+          <div class="glass-effect bg-white/80 dark:bg-slate-800/80 rounded-3xl p-8 border border-slate-200/50 dark:border-slate-700/50 max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">
+              🚀 Recommended Learning Path
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+              New to programming? Follow our structured learning path for the best experience:
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+              <span class="px-4 py-2 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full font-semibold">
+                1. HTML
+              </span>
+              <span class="material-icons text-slate-400 self-center">arrow_forward</span>
+              <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-semibold">
+                2. CSS
+              </span>
+              <span class="material-icons text-slate-400 self-center">arrow_forward</span>
+              <span class="px-4 py-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full font-semibold">
+                3. JavaScript
+              </span>
+              <span class="material-icons text-slate-400 self-center">arrow_forward</span>
+              <span class="px-4 py-2 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 rounded-full font-semibold">
+                4. React
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="text-center text-sm mt-8 text-[#6c8d9c]">
-      &copy; 2025 UpBytes. All rights reserved.
+    </section>
+  </main>
+
+  <!-- Enhanced Footer -->
+  <footer class="bg-slate-900 text-slate-300" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-3 mb-6">
+            <img src="assets/graphics/logo.png" alt="UpBytes Logo" class="h-10 w-auto" width="40" height="40" />
+            <span class="text-2xl font-bold text-white">UpBytes</span>
+          </div>
+          <p class="text-lg leading-relaxed mb-6 max-w-md">
+            Empowering the next generation of developers with interactive, hands-on coding education and industry-recognized certifications.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-300" aria-label="Facebook">
+              <span class="material-icons text-xl">facebook</span>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors duration-300" aria-label="Twitter">
+              <span class="material-icons text-xl">alternate_email</span>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors duration-300" aria-label="Instagram">
+              <span class="material-icons text-xl">camera_alt</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="hover:text-blue-400 transition-colors duration-300">Home</a></li>
+            <li><a href="courses.html" class="hover:text-blue-400 transition-colors duration-300">Courses</a></li>
+            <li><a href="./quiz/quizzes.html" class="hover:text-blue-400 transition-colors duration-300">Quizzes</a></li>
+            <li><a href="editor.html" class="hover:text-blue-400 transition-colors duration-300">Code Editor</a></li>
+            <li><a href="about.html" class="hover:text-blue-400 transition-colors duration-300">About Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4">Contact</h4>
+          <div class="space-y-3">
+            <p class="flex items-center gap-2">
+              <span class="material-icons text-blue-400">email</span>
+              <a href="mailto:info@upbytes.com" class="hover:text-blue-400 transition-colors duration-300">info@upbytes.com</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="material-icons text-blue-400">phone</span>
+              <a href="tel:01155412890" class="hover:text-blue-400 transition-colors duration-300">011 5541 2890</a>
+            </p>
+            <p class="flex items-center gap-2">
+              <span class="material-icons text-blue-400">schedule</span>
+              <span>24/7 Support</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-400">
+          &copy; 2025 UpBytes. All rights reserved. Made with ❤️ for aspiring developers.
+        </p>
+        <div class="flex space-x-6 text-sm">
+          <a href="privacy.html" class="hover:text-blue-400 transition-colors duration-300">Privacy Policy</a>
+          <a href="terms.html" class="hover:text-blue-400 transition-colors duration-300">Terms of Service</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <!-- Bottom Navbar (Mobile Only) -->
-<div class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden">
-  <nav
-    id="mobileNav"
-    class="relative w-[90vw] max-w-md mx-auto
-           flex justify-between items-center px-6 py-3
-           rounded-full backdrop-blur-xl shadow-2xl
-           bg-white/30 dark:bg-gray-900"
-  >
-    <!-- each anchor needs .mobile-link -->
-    <a href="index.html"     class="mobile-link"><span class="material-icons">home</span></a>
-    <a href="courses.html"   class="mobile-link"><span class="material-icons">menu_book</span></a>
+  <!-- Enhanced Mobile Navigation -->
+  <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden" 
+       role="navigation" 
+       aria-label="Mobile navigation">
+    <div class="relative w-[90vw] max-w-sm mx-auto flex justify-between items-center px-6 py-3 rounded-full glass-effect bg-white/90 dark:bg-slate-900/90 shadow-2xl border border-slate-200/50 dark:border-slate-700/50">
+      
+      <a href="index.html" 
+         class="flex items-center justify-center w-12 h-12 rounded-full hover:bg-blue-100 dark:hover:bg-slate-800 transition-all duration-300"
+         aria-label="Home">
+        <span class="material-icons text-slate-600 dark:text-slate-300">home</span>
+      </a>
+      
+      <a href="courses.html" 
+         class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400 transition-all duration-300"
+         aria-label="Courses" aria-current="page">
+        <span class="material-icons">menu_book</span>
+      </a>
 
-    <!-- center “code” button -->
-    <a href="editor.html"
-       class="mobile-link -mt-8 flex items-center justify-center
-              w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-xl">
-       <span class="material-icons text-white text-3xl">code</span>
-    </a>
+      <!-- Center Code Button -->
+      <a href="editor.html" 
+         class="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 -mt-8"
+         aria-label="Code Editor">
+        <span class="material-icons text-white text-3xl">code</span>
+      </a>
 
-    <a href="quiz/quizzes.html" class="mobile-link"><span class="material-icons">quiz</span></a>
-    <a href="profile.html"      class="mobile-link"><span class="material-icons">person</span></a>
+      <a href="quiz/quizzes.html" 
+         class="flex items-center justify-center w-12 h-12 rounded-full hover:bg-blue-100 dark:hover:bg-slate-800 transition-all duration-300"
+         aria-label="Quizzes">
+        <span class="material-icons text-slate-600 dark:text-slate-300">quiz</span>
+      </a>
+      
+      <a href="profile.html" 
+         class="flex items-center justify-center w-12 h-12 rounded-full hover:bg-blue-100 dark:hover:bg-slate-800 transition-all duration-300"
+         aria-label="Profile">
+        <span class="material-icons text-slate-600 dark:text-slate-300">person</span>
+      </a>
+    </div>
   </nav>
-</div>
 
-  <div
-  id="signin-modal"
-  class="hidden fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center z-[9999] transition-all"
->
-  <div
-    id="modal-content"
-    class="relative bg-white dark:bg-[#0d3b52] p-6 rounded-2xl shadow-xl max-w-sm w-full text-center transform scale-95 opacity-0 transition-all duration-300 overflow-hidden"
-  >
-    <!-- Status bar -->
-    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-themebtn to-pink-500 animate-slide"></div>
+  <!-- Enhanced Modal -->
+  <div id="signin-modal"
+       class="hidden fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-[9999] transition-all p-4"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-title">
+    <div id="modal-content"
+         class="relative glass-effect bg-white/95 dark:bg-slate-900/95 p-8 rounded-3xl shadow-2xl max-w-md w-full text-center transform scale-95 opacity-0 transition-all duration-300 border border-slate-200/50 dark:border-slate-700/50">
+      
+      <!-- Header -->
+      <div class="mb-6">
+        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span class="material-icons text-2xl text-white">lock</span>
+        </div>
+        <h2 id="modal-title" class="text-2xl font-bold text-slate-800 dark:text-white">
+          Sign in Required
+        </h2>
+      </div>
 
-    
-    <!-- Close button -->
-<button
-id="close-modal"
-aria-label="Close modal"
-class="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center 
-     bg-gray-200 dark:bg-gray-700 
-     hover:bg-accent hover:text-white 
-     transition-all duration-300 transform hover:scale-110 hover:rotate-90"
->
-<span class="material-icons text-lg">close</span>
-</button>
+      <p class="mb-8 text-slate-600 dark:text-slate-300 leading-relaxed">
+        Create your free account to access our interactive courses and start your coding journey today!
+      </p>
 
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button id="cancel-modal"
+                class="flex-1 px-6 py-3 rounded-xl border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 font-medium">
+          Cancel
+        </button>
+        <button id="signin-modal-btn"
+                class="flex-1 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+          Sign In / Sign Up
+        </button>
+      </div>
 
-    <h2 class="text-xl font-bold mb-4 text-[#005f73] dark:text-white">
-      Sign in Required
-    </h2>
-    <p class="mb-6 text-gray-700 dark:text-gray-300">
-      You need to sign in to access this course.
-    </p>
-
-    <div class="flex justify-center gap-4">
-      <button
-        id="cancel-modal"
-        class="px-4 py-2 rounded-lg border border-gray-400 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition transform hover:scale-105"
-      >
-        Cancel
-      </button>
-      <button
-        id="signin-modal-btn"
-        class="px-4 py-2 rounded-lg bg-accent text-white font-semibold hover:bg-[#008891] transition transform hover:scale-105"
-      >
-        Sign In
+      <!-- Close button -->
+      <button id="close-modal" 
+              class="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 transition-all duration-300 hover:rotate-90"
+              aria-label="Close modal">
+        <span class="material-icons text-slate-600 dark:text-slate-300">close</span>
       </button>
     </div>
   </div>
-</div>
 
+  <!-- Scripts -->
   <script src="assets/js/script.js"></script>
   <script>
-      
+    // Enhanced course card animations with accessibility support
     (() => {
       const cards = document.querySelectorAll(".course-card");
-  
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) return; // Skip animations for users who prefer reduced motion
+
       cards.forEach((card) => {
         const group = card.parentElement;
-  
-        let rx = 0, ry = 0;          // current rotation
-        let tx = 0, ty = 0;          // target rotation
-        let s = 1, ts = 1;           // current & target scale
-        let rafId = null;
-        let hovering = false;
-  
+        let rx = 0, ry = 0, tx = 0, ty = 0, s = 1, ts = 1;
+        let rafId = null, hovering = false;
+
         const lerp = (a, b, t) => a + (b - a) * t;
-  
+
         function animate() {
           rx = lerp(rx, tx, 0.12);
           ry = lerp(ry, ty, 0.12);
-          s  = lerp(s,  ts, 0.12);
-  
+          s = lerp(s, ts, 0.12);
+
           card.style.transform = `translateZ(0) rotateX(${rx}deg) rotateY(${ry}deg) scale(${s})`;
-  
-          const stillMoving =
-            Math.abs(tx - rx) > 0.01 ||
-            Math.abs(ty - ry) > 0.01 ||
-            Math.abs(ts - s)  > 0.001;
-  
+
+          const stillMoving = Math.abs(tx - rx) > 0.01 || Math.abs(ty - ry) > 0.01 || Math.abs(ts - s) > 0.001;
+
           if (hovering || stillMoving) {
             rafId = requestAnimationFrame(animate);
           } else {
             rafId = null;
           }
         }
-  
+
         function ensureAnimating() {
           if (rafId == null) rafId = requestAnimationFrame(animate);
         }
-  
+
         group.addEventListener("mousemove", (e) => {
           const rect = group.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
-  
-          // normalize to [-1, 1]
           const nx = (x / rect.width) * 2 - 1;
           const ny = (y / rect.height) * 2 - 1;
-  
-          // max 10deg tilt
-          tx = -ny * 10;
-          ty =  nx * 10;
+          tx = -ny * 8; // Reduced from 10 to 8 for subtler effect
+          ty = nx * 8;
         }, { passive: true });
-  
+
         group.addEventListener("mouseenter", () => {
           hovering = true;
-          ts = 1.05;
+          ts = 1.03; // Reduced from 1.05 to 1.03 for subtler scaling
           ensureAnimating();
         });
-  
+
         group.addEventListener("mouseleave", () => {
           hovering = false;
           tx = 0; ty = 0; ts = 1;
-          ensureAnimating(); // glide back, then stop
+          ensureAnimating();
         });
       });
     })();
 
+    // Course filtering functionality
+    (() => {
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const courseItems = document.querySelectorAll('.course-item');
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const filter = tab.dataset.filter;
+          
+          // Update active tab
+          filterTabs.forEach(t => {
+            t.classList.remove('active', 'bg-blue-600', 'text-white');
+            t.classList.add('bg-white/80', 'dark:bg-slate-700/80', 'text-slate-700', 'dark:text-slate-200');
+          });
+          tab.classList.add('active', 'bg-blue-600', 'text-white');
+          tab.classList.remove('bg-white/80', 'dark:bg-slate-700/80', 'text-slate-700', 'dark:text-slate-200');
+
+          // Filter courses
+          courseItems.forEach(item => {
+            if (filter === 'all' || item.dataset.category === filter) {
+              item.style.display = 'block';
+              item.style.animation = 'fadeIn 0.5s ease-in-out';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+
+    // Add CSS for fade in animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
+
 </html>
