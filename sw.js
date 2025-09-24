@@ -4,10 +4,10 @@ const CACHE_NAME = 'pwa-cache-v1';
 // List the core files you want to be available offline
 const ASSETS_TO_CACHE = [
   '/',
-  '/assets/js/script.js',
-  '/assets/graphics/logo.png',
-  '/dist/output.css',
-  '/tailwind.config.js'
+  '/UpBytes/assets/js/script.js',
+  '/UpBytes/assets/graphics/logo.png',
+  '/UpBytes/dist/output.css',
+  '/UpBytes/tailwind.config.js'
 ];
 
 // Install: cache the core files
