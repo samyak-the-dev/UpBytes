@@ -6,6 +6,8 @@ module.exports = {
     "./**/*.{html,js}"
   ],
     
+  safelist: ['scale-95', 'scale-100', 'opacity-0', 'opacity-100'],
+
   theme: {
     extend: {
       colors: {
