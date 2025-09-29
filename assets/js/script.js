@@ -142,6 +142,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.modalManager = new ModalManager();
 });
 
+window.addEventListener('load', () => {
+  const content = document.getElementById('modal-content');
+  console.log(content); // should not be null
+});
+
 
 // Navbar Manager
 class NavbarManager {
