@@ -127,13 +127,16 @@ class ModalManager {
 
   hookCourseLinks() {
     document.body.addEventListener("click", e => {
-      const link = e.target.closest("a[href*='course-']");
+      const link = e.target.closest("a"); // any link
       if (!link) return;
-      if (localStorage.getItem("isSignedIn") !== "true") {
+    
+      // Only intercept course links
+      if (link.href.includes("course-") && localStorage.getItem("isSignedIn") !== "true") {
         e.preventDefault();
         window.modalManager.open();
       }
-    });    
+    });
+     
   }
 }
 
