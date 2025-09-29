@@ -138,6 +138,11 @@ class ModalManager {
   }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  window.modalManager = new ModalManager();
+});
+
+
 // Navbar Manager
 class NavbarManager {
   constructor() {
