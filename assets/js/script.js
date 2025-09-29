@@ -64,10 +64,10 @@ class ModalManager {
     this.modal.classList.remove("hidden");
     document.body.style.overflow = "hidden";
 
-    requestAnimationFrame(() => {
+    setTimeout(() => {
       this.modalContent.classList.remove("scale-95", "opacity-0");
       this.modalContent.classList.add("scale-100", "opacity-100");
-    });
+    }, 20);
 
     // Recalculate focusable elements after animation
     setTimeout(() => {
