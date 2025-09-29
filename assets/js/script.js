@@ -125,18 +125,34 @@ class ModalManager {
     }
   }
 
-  hookCourseLinks() {
-    document.body.addEventListener("click", e => {
-      const link = e.target.closest("a.course-card"); // closest <a class="course-card">
-      if (!link) return;
+  // hookCourseLinks() {
+  //   document.body.addEventListener("click", e => {
+  //     const link = e.target.closest("a.course-card"); // closest <a class="course-card">
+  //     if (!link) return;
     
-      if (localStorage.getItem("isSignedIn") !== "true") {
-        e.preventDefault();      // stop navigation
-        window.modalManager.open(); // show modal
-      }
-    });    
-  }
+  //     if (localStorage.getItem("isSignedIn") !== "true") {
+  //       e.preventDefault();      // stop navigation
+  //       window.modalManager.open(); // show modal
+  //     }
+  //   });    
+  // }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  window.modalManager = new ModalManager();
+
+  // Delegated course click handler
+  document.body.addEventListener("click", e => {
+    const link = e.target.closest("a.course-card"); // match your HTML
+    if (!link) return;
+
+    if (localStorage.getItem("isSignedIn") !== "true") {
+      e.preventDefault();
+      window.modalManager.open();
+    }
+  });
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
   window.modalManager = new ModalManager();
