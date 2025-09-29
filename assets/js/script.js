@@ -145,12 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
     if (localStorage.getItem("isSignedIn") !== "true") {
       e.preventDefault();
-      console.log('Opening modal…');
+      e.stopImmediatePropagation();
       window.modalManager.open();
     }
   });
   
-});
+}, true);
 
 window.addEventListener('load', () => {
   const content = document.getElementById('modal-content');
