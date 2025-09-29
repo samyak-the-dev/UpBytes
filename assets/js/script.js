@@ -126,15 +126,14 @@ class ModalManager {
   }
 
   hookCourseLinks() {
-    const courseLinks = document.querySelectorAll("a[href*='course-']");
-    courseLinks.forEach(link => {
-      link.addEventListener("click", e => {
-        if (localStorage.getItem("isSignedIn") !== "true") {
-          e.preventDefault();
-          this.open();
-        }
-      });
-    });
+    document.body.addEventListener("click", e => {
+      const link = e.target.closest("a[href*='course-']");
+      if (!link) return;
+      if (localStorage.getItem("isSignedIn") !== "true") {
+        e.preventDefault();
+        window.modalManager.open();
+      }
+    });    
   }
 }
 
