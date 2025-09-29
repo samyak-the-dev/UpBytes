@@ -139,16 +139,17 @@ class ModalManager {
 document.addEventListener('DOMContentLoaded', () => {
   window.modalManager = new ModalManager();
 
-  // Delegated course click handler
-  document.body.addEventListener("click", e => {
-    const link = e.target.closest("a.course-card"); // match your HTML
+  document.body.addEventListener('click', e => {
+    const link = e.target.closest('a.course-card');
     if (!link) return;
-
+  
     if (localStorage.getItem("isSignedIn") !== "true") {
       e.preventDefault();
+      console.log('Opening modal…');
       window.modalManager.open();
     }
   });
+  
 });
 
 window.addEventListener('load', () => {
