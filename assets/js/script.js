@@ -55,8 +55,6 @@ class ModalManager {
 
     this.modal.addEventListener("click", e => { if (e.target === this.modal) this.close(); });
     this.modal.addEventListener("keydown", e => this.handleKeyDown(e));
-
-    this.hookCourseLinks();
   }
 
   open() {
