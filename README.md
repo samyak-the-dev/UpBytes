@@ -129,6 +129,6 @@ This project is licensed under the MIT License.
 
 ## ✨ Credits
 
-Created and maintained by [Samyak-the-dev](https://github.com/samyak-the-dev). Contributions are welcome!
+Created and maintained by [samyak-the-dev](https://github.com/samyak-the-dev). Contributions are welcome!
 
 ## Note
