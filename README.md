@@ -10,7 +10,7 @@
 - 📱 Responsive design powered by Tailwind CSS
 - ⚡ Offline support via service worker (`sw.js`)
 - 🧩 Quiz section to test your knowledge
-- 🌐 No backend — pure frontend simplicity(*as of now*)
+- 🌐 No backend — pure frontend simplicity (*as of now*)
 
 ---
 ## ⚠️ Note
