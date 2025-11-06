@@ -313,55 +313,86 @@
 
         <!-- FAQ Section -->
         <section class="mt-20 px-6">
-  <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-12">
-      Frequently Asked Questions
-    </h2>
-
-    <div class="flex flex-col md:flex-row gap-4 justify-center">
-      <!-- FAQ Items -->
-      <div class="faq-item flex-1 bg-white/80 dark:bg-slate-900/80 rounded-xl shadow-lg border border-white/20 dark:border-slate-700/20 transition-all duration-300 overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center text-lg font-semibold text-slate-800 dark:text-white focus:outline-none">
-          Can I switch plans anytime?
-          <span class="material-icons transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-answer px-6 pb-4 max-h-0 overflow-hidden text-slate-600 dark:text-slate-300 transition-all duration-300">
-          Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.
-        </div>
-      </div>
-
-      <div class="faq-item flex-1 bg-white/80 dark:bg-slate-900/80 rounded-xl shadow-lg border border-white/20 dark:border-slate-700/20 transition-all duration-300 overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center text-lg font-semibold text-slate-800 dark:text-white focus:outline-none">
-          Is there a free trial?
-          <span class="material-icons transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-answer px-6 pb-4 max-h-0 overflow-hidden text-slate-600 dark:text-slate-300 transition-all duration-300">
-          The first 100 learners get Pro free for 3 months. After that, we offer a 7-day free trial.
-        </div>
-      </div>
-
-      <div class="faq-item flex-1 bg-white/80 dark:bg-slate-900/80 rounded-xl shadow-lg border border-white/20 dark:border-slate-700/20 transition-all duration-300 overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center text-lg font-semibold text-slate-800 dark:text-white focus:outline-none">
-          Payment methods accepted?
-          <span class="material-icons transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-answer px-6 pb-4 max-h-0 overflow-hidden text-slate-600 dark:text-slate-300 transition-all duration-300">
-          We accept all major credit cards, PayPal, and bank transfers for School plans.
-        </div>
-      </div>
-
-      <div class="faq-item flex-1 bg-white/80 dark:bg-slate-900/80 rounded-xl shadow-lg border border-white/20 dark:border-slate-700/20 transition-all duration-300 overflow-hidden">
-        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center text-lg font-semibold text-slate-800 dark:text-white focus:outline-none">
-          Do you offer refunds?
-          <span class="material-icons transition-transform duration-300">expand_more</span>
-        </button>
-        <div class="faq-answer px-6 pb-4 max-h-0 overflow-hidden text-slate-600 dark:text-slate-300 transition-all duration-300">
-          Yes, we offer a 30-day money-back guarantee for all paid plans.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 dark:text-white mb-12">
+              Frequently Asked Questions
+            </h2>
+            <div class="space-y-4">
+              <!-- FAQ Item -->
+              <div class="faq-item rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm">
+                <button class="faq-toggle w-full px-6 py-4 flex justify-between items-center text-left text-lg font-medium text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+                  <span>Can I switch plans anytime?</span>
+                  <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="faq-content px-6 pb-4 text-slate-600 dark:text-slate-300 hidden">
+                  Yes, you can upgrade or downgrade your plan at any time. Changes apply instantly.
+                </div>
+              </div>
+        
+              <div class="faq-item rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm">
+                <button class="faq-toggle w-full px-6 py-4 flex justify-between items-center text-left text-lg font-medium text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+                  <span>Is there a free trial?</span>
+                  <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="faq-content px-6 pb-4 text-slate-600 dark:text-slate-300 hidden">
+                  Yes! The first 100 learners get Pro free for 3 months. After that, a 7-day trial is available.
+                </div>
+              </div>
+        
+              <div class="faq-item rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm">
+                <button class="faq-toggle w-full px-6 py-4 flex justify-between items-center text-left text-lg font-medium text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+                  <span>What payment methods do you accept?</span>
+                  <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="faq-content px-6 pb-4 text-slate-600 dark:text-slate-300 hidden">
+                  We accept major credit/debit cards, PayPal, and bank transfers for School plans.
+                </div>
+              </div>
+        
+              <div class="faq-item rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm">
+                <button class="faq-toggle w-full px-6 py-4 flex justify-between items-center text-left text-lg font-medium text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+                  <span>Do you offer refunds?</span>
+                  <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="faq-content px-6 pb-4 text-slate-600 dark:text-slate-300 hidden">
+                  Yes, we offer a 30-day money-back guarantee on all paid plans.
+                </div>
+              </div>
+        
+              <div class="faq-item rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm">
+                <button class="faq-toggle w-full px-6 py-4 flex justify-between items-center text-left text-lg font-medium text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+                  <span>Is my plan transferable?</span>
+                  <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="faq-content px-6 pb-4 text-slate-600 dark:text-slate-300 hidden">
+                  No, plans are tied to your account and cannot be transferred.
+                </div>
+              </div>
+        
+              <div class="faq-item rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm">
+                <button class="faq-toggle w-full px-6 py-4 flex justify-between items-center text-left text-lg font-medium text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+                  <span>Can I cancel anytime?</span>
+                  <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="faq-content px-6 pb-4 text-slate-600 dark:text-slate-300 hidden">
+                  Absolutely. You can cancel your subscription anytime from your dashboard.
+                </div>
+              </div>
+        
+              <div class="faq-item rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm">
+                <button class="faq-toggle w-full px-6 py-4 flex justify-between items-center text-left text-lg font-medium text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+                  <span>Need help or have questions?</span>
+                  <svg class="w-5 h-5 transform transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                </button>
+                <div class="faq-content px-6 pb-4 text-slate-600 dark:text-slate-300 hidden">
+                  Contact our support team at <a href="mailto:info@upbytes.com" class="text-blue-600 dark:text-blue-400 underline">info@upbytes.com</a>.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        
 
   </main>
 
@@ -476,32 +507,15 @@
   </nav>
 
   <!-- Scripts -->
-<script>const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-  const button = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-  const icon = button.querySelector('.material-icons');
-
+<script>document.querySelectorAll('.faq-toggle').forEach(button => {
   button.addEventListener('click', () => {
-    faqItems.forEach(other => {
-      const otherAnswer = other.querySelector('.faq-answer');
-      const otherIcon = other.querySelector('.material-icons');
-      if (other !== item) {
-        otherAnswer.style.maxHeight = null;
-        otherIcon.style.transform = 'rotate(0deg)';
-      }
-    });
-
-    if (answer.style.maxHeight) {
-      answer.style.maxHeight = null;
-      icon.style.transform = 'rotate(0deg)';
-    } else {
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-      icon.style.transform = 'rotate(180deg)';
-    }
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('svg');
+    content.classList.toggle('hidden');
+    icon.classList.toggle('rotate-180');
   });
 });
+
 
 </script>
   <script src="public/assets/js/script.js"></script>
