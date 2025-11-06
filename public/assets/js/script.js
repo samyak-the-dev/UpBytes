@@ -122,18 +122,6 @@ class ModalManager {
       first.focus();
     }
   }
-
-  // hookCourseLinks() {
-  //   document.body.addEventListener("click", e => {
-  //     const link = e.target.closest("a.course-card"); // closest <a class="course-card">
-  //     if (!link) return;
-    
-  //     if (localStorage.getItem("isSignedIn") !== "true") {
-  //       e.preventDefault();      // stop navigation
-  //       window.modalManager.open(); // show modal
-  //     }
-  //   });    
-  // }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
