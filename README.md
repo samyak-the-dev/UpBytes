@@ -34,16 +34,7 @@ SkillxAI/
 ├── dist/                  # Distribution-ready files
 ├── errors/                # Error pages or handlers
 ├── src/                   # Source files (scripts, components)
-├── css-course/            # CSS tutorials
-├── html-course/           # HTML tutorials
-├── mongo-course/          # MongoDB tutorials
-├── nodexpress-course/     # Node.js + Express tutorials
-├── js-course/             # JavaScript tutorials
-├── python-course/         # Python tutorials
-├── react-course/          # React tutorials
-├── git-course/            # Git tutorials
-├── mysql-course/          # MySQL tutorials
-├── quiz/                  # Quiz functionality
+├── courses/               # Course and Quiz Pages
 ├── index.html             # Main landing page
 ├── editor.html            # Code editor interface
 ├── courses.html           # Course listing page
