@@ -72,7 +72,7 @@ SkillxAI/
 
 ## 📲 PWA Support
 
-SkillxAI includes a service worker for offline access. To enable:
+SkillxAI includes a service worker for offline access **(Under Development)**. To enable:
 
 - Open the site in Chrome
 - Click “Install” from the address bar
@@ -91,7 +91,7 @@ SkillxAI includes a service worker for offline access. To enable:
 
 ## 🧠 Quiz Section
 
-Test your knowledge with interactive quizzes in the `quiz/` folder. Each course may include its own quiz module.
+Test your knowledge with interactive quizzes in the `courses/` folder. Each course may include its own quiz module.
 
 ---
 
@@ -121,5 +121,3 @@ This project is licensed under the MIT License.
 ## ✨ Credits
 
 Created and maintained by [samyak-the-dev](https://github.com/samyak-the-dev). Contributions are welcome!
-
-## Note
