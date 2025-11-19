@@ -178,46 +178,46 @@
           <span class="material-icons text-yellow-400">flash_on</span>
           <span>First 100 learners get Pro FREE for 3 months</span>
         </div>
-
+  
         <!-- Headlines -->
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-6 bg-gradient-to-r from-white via-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-white dark:via-blue-400 dark:to-purple-400">
           Master Programming<br />
           <span class="text-indigo-600 dark:text-indigo-400">One Course at a Time</span>
         </h1>
-
+  
         <p class="text-xl sm:text-2xl max-w-3xl mx-auto mb-12 text-slate-600 dark:text-slate-300 font-medium leading-relaxed">
           From beginner to expert, our interactive courses cover everything you need to become a professional developer.
         </p>
       </div>
     </section>
-
+  
     <!-- Course Filters -->
-    <section class="py-12 px-6 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
+    <section class="py-12 px-6 bg-white dark:bg-slate-800 backdrop-blur-sm">
       <div class="max-w-6xl mx-auto">
-        <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <div class="flex flex-wrap justify-center gap-4 mb-7">
           <button class="filter-tab active px-6 py-3 rounded-full bg-blue-600 text-white font-semibold transition-all duration-300" data-filter="all">
             All Courses
           </button>
-          <button class="filter-tab px-6 py-3 rounded-full bg-white/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="frontend">
+          <button class="filter-tab px-6 py-3 rounded-full bg-gray-100 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="frontend">
             Frontend
           </button>
-          <button class="filter-tab px-6 py-3 rounded-full bg-white/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="backend">
+          <button class="filter-tab px-6 py-3 rounded-full bg-gray-100 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="backend">
             Backend
           </button>
-          <button class="filter-tab px-6 py-3 rounded-full bg-white/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="database">
+          <button class="filter-tab px-6 py-3 rounded-full bg-gray-100 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="database">
             Database
           </button>
-          <button class="filter-tab px-6 py-3 rounded-full bg-white/80 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="tools">
+          <button class="filter-tab px-6 py-3 rounded-full bg-gray-100 dark:bg-slate-700/80 text-slate-700 dark:text-slate-200 font-semibold hover:bg-blue-100 dark:hover:bg-slate-600 transition-all duration-300" data-filter="tools">
             Tools
           </button>
         </div>
       </div>
     </section>
-
+  
     <!-- Enhanced Courses Grid -->
     <section id="featured-courses" class="py-20 px-6" aria-label="Programming courses">
       <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="courses-grid">
+        <div id="courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           <!-- HTML Course -->
           <div class="group [perspective:1000px] course-item" data-category="frontend">
@@ -771,7 +771,7 @@
     'dark:hover:bg-slate-600'
   );
   t.classList.add(
-    'bg-white/80',
+    'bg-gray-100',
     'dark:bg-slate-700/80',
     'text-slate-700',
     'dark:text-slate-200',
@@ -787,7 +787,7 @@ tab.classList.add(
   'hover:bg-blue-700' // add a hover that matches active color
 );
 tab.classList.remove(
-  'bg-white/80',
+  'bg-gray-100',
   'dark:bg-slate-700/80',
   'text-slate-700',
   'dark:text-slate-200',
