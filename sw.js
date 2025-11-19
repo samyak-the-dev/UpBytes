@@ -1,13 +1,13 @@
 // Name & version your cache so you can bump it when files change
 const CACHE_NAME = 'pwa-cache-v1';
 
-// List the core files you want to be available offline
+// core files to be available offline
 const ASSETS_TO_CACHE = [
   '/',
-  '/UpBytes/public/assets/js/script.js',
-  '/UpBytes/public/assets/graphics//logo.png',
-  '/UpBytes/dist/output.css',
-  '/UpBytes/tailwind.config.js'
+  '/SkillxAI/public/assets/js/script.js',
+  '/SkillxAI/public/assets/graphics//logo.png',
+  '/SkillxAI/dist/output.css',
+  '/SkillxAI/tailwind.config.js'
 ];
 
 // Install: cache the core files

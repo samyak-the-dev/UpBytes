@@ -1,4 +1,4 @@
-// Enhanced UpBytes JavaScript - Professional & Accessible
+// Enhanced SkillxAI JavaScript - Professional & Accessible
 
 // Theme Management
 function toggleTheme() {
@@ -288,14 +288,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (icon) icon.textContent = storedTheme === "dark" ? "light_mode" : "dark_mode";
 
-  announceToScreenReader("UpBytes learning platform loaded successfully");
+  announceToScreenReader("SkillxAI learning platform loaded successfully");
 });
 
 // Service Worker
 if ('serviceWorker' in navigator && 'caches' in window) {
   window.addEventListener('load', async () => {
     try {
-      const registration = await navigator.serviceWorker.register('/UpBytes/sw.js');
+      const registration = await navigator.serviceWorker.register('/SkillxAI/sw.js');
       console.log('ServiceWorker registered successfully');
       registration.addEventListener('updatefound', () => {
         const newWorker = registration.installing;
@@ -316,4 +316,4 @@ window.addEventListener('error', e => console.error('Application error:', e.erro
 window.addEventListener('unhandledrejection', e => console.error('Unhandled promise rejection:', e.reason));
 
 // Export for external use
-window.UpBytes = { toggleTheme, announceToScreenReader };
+window.SkillxAI = { toggleTheme, announceToScreenReader };

@@ -1,6 +1,6 @@
-# 📚 UpBytes
+# 📚 SkillxAI
 
-**UpBytes** is a beginner-friendly web development learning platform that teaches HTML, CSS, JavaScript, Python, Git, React, MongoDB, MySQL, and more — all in one place. It’s designed to be simple, interactive, and offline-ready.
+**SkillxAI** is a beginner-friendly web development learning platform that teaches HTML, CSS, JavaScript, Python, Git, React, MongoDB, MySQL, and more — all in one place. It’s designed to be simple, interactive, and offline-ready.
 
 ---
 
@@ -29,7 +29,7 @@ We appreciate your patience and welcome contributions to help improve it!
 ## 📁 Project Structure
 
 ```
-UpBytes/
+SkillxAI/
 ├── assets/                # Static assets (images, icons, etc.)
 ├── dist/                  # Distribution-ready files
 ├── errors/                # Error pages or handlers
@@ -62,8 +62,8 @@ UpBytes/
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/samyak-the-dev/UpBytes.git
-   cd UpBytes
+   git clone https://github.com/samyak-the-dev/SkillxAI.git
+   cd SkillxAI
    ```
 
 2. **Install dependencies**
@@ -81,7 +81,7 @@ UpBytes/
 
 ## 📲 PWA Support
 
-UpBytes includes a service worker for offline access. To enable:
+SkillxAI includes a service worker for offline access. To enable:
 
 - Open the site in Chrome
 - Click “Install” from the address bar
